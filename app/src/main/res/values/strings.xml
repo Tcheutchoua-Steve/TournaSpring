@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TournaSpring</string>
+
+    <!--Competition Details-->
+    <string name="admin_name">Administrator Name</string>
+    <string name="competition_name">Competition Name</string>
+    <string name="number_of_questions">Number of Questions</string>
+    <string name="competition_time">Time for Competition</string>
+    <string name="number_of_competitors">Number of Competitors</string>
+    <string name="proceed">Continue</string>
+</resources>
