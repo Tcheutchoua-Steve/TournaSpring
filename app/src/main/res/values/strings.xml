@@ -1,11 +1,23 @@
 <resources>
     <string name="app_name">TournaSpring</string>
 
-    <!--Competition Details-->
-    <string name="admin_name">Administrator Name</string>
-    <string name="competition_name">Competition Name</string>
-    <string name="number_of_questions">Number of Questions</string>
-    <string name="competition_time">Time for Competition</string>
-    <string name="number_of_competitors">Number of Competitors</string>
-    <string name="proceed">Continue</string>
+    <!--  Menu items -->
+    <string name="settings">Settings</string>
+    <string name="refresh">Refresh</string>
+
+    <!--  NetworkActivity -->
+    <string name="page_title">Questions in a sample Competition </string>
+    <string name="competition_details">Competition Details:</string>
+    <string name="competition_name"> Java Keep Alive</string>
+    <string name="competition_admin_field">Competition Administrator: </string>
+    <string name="competition_admin">Tcheutchoua Steve</string>
+    <string name="number_of_questions">Number of available Question: </string>
+    <string name="number_of_competitors_field">Number of Competitors: </string>
+    <string name="updated">Last updated:</string>
+    <string name="lost_connection">Lost connection.</string>
+    <string name="wifi_connected">Wi-Fi reconnected.</string>
+    <string name="connection_error">Unable to load content. Please Check your network connection and try again.</string>
+    <string name="xml_error">Error parsing XML.</string>
+    <string name="title_activity_question_display">QuestionDisplay</string>
+
 </resources>

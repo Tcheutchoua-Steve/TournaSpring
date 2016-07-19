@@ -1,0 +1,2208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" xmlns:re="http://purl.org/atompub/rank/1.0">
+    <title type="text">Newest questions tagged android - Stack Overflow</title>
+    <link rel="self" href="http://stackoverflow.com/feeds/tag?tagnames=android&amp;sort=newest" type="application/atom+xml" />
+    <link rel="alternate" href="http://stackoverflow.com/questions/tagged/?tagnames=android&amp;sort=newest" type="text/html" />
+    <subtitle>most recent 30 from stackoverflow.com</subtitle>
+    <updated>2016-05-20T02:28:56Z</updated>
+    <id>http://stackoverflow.com/feeds/tag?tagnames=android&amp;sort=newest</id>
+    <creativeCommons:license>http://www.creativecommons.org/licenses/by-sa/3.0/rdf</creativeCommons:license> 
+    <entry>
+        <id>http://stackoverflow.com/q/37336987</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">changing locale within android app</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>Terence Ung</name>
+            <uri>http://stackoverflow.com/users/1995286</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336987/changing-locale-within-android-app" />
+        <published>2016-05-20T02:24:51Z</published>
+        <updated>2016-05-20T02:24:51Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I would like to change the locale in app(not the android system). I know android developer site does not recommended to do this.&lt;/p&gt;
+
+&lt;p&gt;My current solution is using packageManager to get the launcher intent of the app and set clear stack and new task flag, restarting the whole app. How about if i want to change the language is setting and the navigation back arrow in action bar or in android phone is pressed. Do i simply just put all the checkings in onResume in all the activities and fragments. Btw, onconfigurationchange with manifest localeChanges attribute does not trigger when changing locale in app.&lt;/p&gt;
+
+&lt;p&gt;What is the best pratice/efficient way of doing this?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336983</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">How precise will a calculation of Jerk be based upon accelerometer data from a smart-phone?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="ios" />
+            <category scheme="http://stackoverflow.com/tags" term="signal-processing" />
+            <category scheme="http://stackoverflow.com/tags" term="accelerometer" />
+            <category scheme="http://stackoverflow.com/tags" term="sensor" />
+        <author>
+            <name>user2738835</name>
+            <uri>http://stackoverflow.com/users/2738835</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336983/how-precise-will-a-calculation-of-jerk-be-based-upon-accelerometer-data-from-a-s" />
+        <published>2016-05-20T02:24:38Z</published>
+        <updated>2016-05-20T02:24:38Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I understand you need to filter the accelerometer results to get as much noise away as you can. There are plenty of discussions of that in here. But when you get past that and you calculate Jerk over say a 20 minute, 10hz filtered data stream from a smart-phones accelerometer, how big is the remaining noise we can&#39;t filter away? (from hardware, that Jerk is a derivative, etc) Is this noise such that in fact we cant put much faith in the Jerk estimate we get to? Could one calculate a confidence measure for the Jerk estimate?   &lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336967</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">buildTypes.each String for API&#39;s in Android Gradle configuration</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>PianoFingers</name>
+            <uri>http://stackoverflow.com/users/5431144</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336967/buildtypes-each-string-for-apis-in-android-gradle-configuration" />
+        <published>2016-05-20T02:22:41Z</published>
+        <updated>2016-05-20T02:22:41Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;m working on Google&#39;s Udacity course for new Android Devs, and I&#39;ve come into some trouble with the Gradle build and defining a constant in it. I&#39;ve tried surrounding the field with multiple variations of &quot;, &#39;, and \&#39;s that I say recommended online, but nothing seems to work. I was wondering how to format the line inside buildTypes.each, seen here?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;buildTypes.each {
+    it.buildConfigField &quot;String&quot;, &quot;OPEN_WEATHER_MAP_API_KEY&quot;, **APICodeHere**
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&#39;s the entirety of the code for the app&#39;s gradle build.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;android {
+compileSdkVersion 21
+buildToolsVersion &quot;21.1.2&quot;
+
+defaultConfig {
+    applicationId &quot;com.example.android.sunshine.app&quot;
+    minSdkVersion 10
+    targetSdkVersion 21
+    versionCode 1
+    versionName &quot;1.0&quot;
+}
+buildTypes {
+    release {
+        minifyEnabled false
+        proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+    }
+}
+buildTypes.each {
+    it.buildConfigField &quot;String&quot;, &quot;OPEN_WEATHER_MAP_API_KEY&quot;, **APICodeHere**
+}
+
+}
+
+dependencies {
+compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
+compile &#39;com.android.support:appcompat-v7:21.0.2&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks!!!&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336934</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Proguard issues: Attempt to invoke virtual method &#39;v4.view.ViewPager.setAdapter(android.support.v4.view.PagerAdapter)&#39; on a null object reference</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="proguard" />
+            <category scheme="http://stackoverflow.com/tags" term="android-proguard" />
+        <author>
+            <name>Hao</name>
+            <uri>http://stackoverflow.com/users/6358833</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336934/proguard-issues-attempt-to-invoke-virtual-method-v4-view-viewpager-setadapter" />
+        <published>2016-05-20T02:18:32Z</published>
+        <updated>2016-05-20T02:18:32Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;Strange issues about android proguard.&lt;/p&gt;
+
+&lt;p&gt;Here is the configuration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
+            versionNameSuffix &quot;.sit&quot;
+            applicationIdSuffix &quot;.sit&quot;
+            signingConfig signingConfigs.release
+            proguardFiles &#39;proguard-rules.pro&#39;
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles &#39;proguard-rules.pro&#39;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The debug compiles and runs without any issues, but on release (where I have minifyEnabled true), after the application is launched, I get the following exception:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java.lang.RuntimeException: Unable to start activity ComponentInfo{com.yangda.edu.hnu.sit/com.yangda.edu.ui.activity.GuideActivity}: 
+java.lang.NullPointerException: Attempt to invoke virtual method &#39;void android.support.v4.view.ViewPager.setAdapter(android.support.v4.view.PagerAdapter)&#39; on a null object reference
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2450)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2512)
+            at android.app.ActivityThread.access$1200(ActivityThread.java:165)
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1373)
+            at android.os.Handler.dispatchMessage(Handler.java:102)
+            at android.os.Looper.loop(Looper.java:135)
+            at android.app.ActivityThread.main(ActivityThread.java:5593)
+            at java.lang.reflect.Method.invoke(Native Method)
+            at java.lang.reflect.Method.invoke(Method.java:372)
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:967)
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:762)
+            Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &#39;void android.support.v4.view.ViewPager.setAdapter(android.support.v4.view.PagerAdapter)&#39; on a null object reference
+            at com.yangda.edu.ui.activity.GuideActivity.a(GuideActivity.java:122)
+            at com.yangda.edu.ui.activity.GuideActivity.onCreate(GuideActivity.java:77)
+            at android.app.Activity.performCreate(Activity.java:6102)
+            at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1106)
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2403)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2512)&#160;
+            at android.app.ActivityThread.access$1200(ActivityThread.java:165)&#160;
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1373)&#160;
+            at android.os.Handler.dispatchMessage(Handler.java:102)&#160;
+            at android.os.Looper.loop(Looper.java:135)&#160;
+            at android.app.ActivityThread.main(ActivityThread.java:5593)&#160;
+            at java.lang.reflect.Method.invoke(Native Method)&#160;
+            at java.lang.reflect.Method.invoke(Method.java:372)&#160;
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:967)&#160;
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:762)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That means that there are some troubles with ProGuard. I was playing a lot with proguard-rules.txt file, but still can&#39;t get it work. Here it is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 代码混淆压缩比，在0~7之间，默认为5,一般不下需要修改
+-optimizationpasses 5
+
+# 混淆时不使用大小写混合，混淆后的类名为小写
+# windows下的同学还是加入这个选项吧(windows大小写不敏感)
+-dontusemixedcaseclassnames
+
+# 指定不去忽略非公共的库的类
+# 默认跳过，有些情况下编写的代码与类库中的类在同一个包下，并且持有包中内容的引用，此时就需要加入此条声明
+-dontskipnonpubliclibraryclasses
+
+# 指定不去忽略非公共的库的类的成员
+-dontskipnonpubliclibraryclassmembers
+
+# 不做预检验，preverify是proguard的四个步骤之一
+# Android不需要preverify，去掉这一步可以加快混淆速度
+-dontpreverify
+
+# 有了verbose这句话，混淆后就会生成映射文件
+# 包含有类名-&amp;gt;混淆后类名的映射关系
+# 然后使用printmapping指定映射文件的名称
+-verbose
+-printmapping priguardMapping.txt
+
+# 指定混淆时采用的算法，后面的参数是一个过滤器
+# 这个过滤器是谷歌推荐的算法，一般不改变
+-optimizations !code/simplification/artithmetic,!field/*,!class/merging/*
+
+# 保护代码中的Annotation不被混淆
+# 这在JSON实体映射时非常重要，比如fastJson
+-keepattributes *Annotation*
+
+# 避免混淆泛型
+# 这在JSON实体映射时非常重要，比如fastJson
+-keepattributes Signature
+
+# 抛出异常时保留代码行号
+-keepattributes SourceFile,LineNumberTable
+
+# 保留了继承自Activity、Application这些类的子类
+# 因为这些子类有可能被外部调用
+# 比如第一行就保证了所有Activity的子类不要被混淆
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.view.View
+-keep public class com.android.vending.licensing.ILicensingService
+
+# 如果有引用android-support-v4.jar包，可以添加下面这行
+-keep public class com.yangda.edu.ui.fragment.** {*;}
+
+# 保留Activity中的方法参数是view的方法，
+# 从而我们在layout里面编写onClick就不会影响
+-keepclassmembers class * extends android.app.Activity {
+    public void * (android.view.View);
+}
+
+# 枚举类不能被混淆
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+# 保留自定义控件(继承自View)不能被混淆
+-keep public class * extends android.view.View {
+    public &amp;lt;init&amp;gt;(android.content.Context);
+    public &amp;lt;init&amp;gt;(android.content.Context, android.util.AttributeSet);
+    public &amp;lt;init&amp;gt;(android.content.Context, android.util.AttributeSet, int);
+    public void set*(***);
+    *** get* ();
+}
+
+# 保留Parcelable序列化的类不能被混淆
+-keep class * implements android.os.Parcelable{
+    public static final android.os.Parcelable$Creator *;
+}
+
+# 保留Serializable 序列化的类不被混淆
+-keepclassmembers class * implements java.io.Serializable {
+   static final long serialVersionUID;
+   private static final java.io.ObjectStreamField[] serialPersistentFields;
+   !static !transient &amp;lt;fields&amp;gt;;
+   private void writeObject(java.io.ObjectOutputStream);
+   private void readObject(java.io.ObjectInputStream);
+   java.lang.Object writeReplace();
+   java.lang.Object readResolve();
+}
+
+# 对R文件下的所有类及其方法，都不能被混淆
+-keepclassmembers class **.R$* {
+    *;
+}
+
+# 对于带有回调函数onXXEvent的，不能混淆
+-keepclassmembers class * {
+    void *(**On*Event);
+}
+
+-keep class com.yangda.edu.model.model.** {
+    *;
+}
+
+-keepclassmembers class * extends android.webkit.WebViewClient {
+    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+    public boolean *(android.webkit.WebView, java.lang.String);
+}
+-keepclassmembers class * extends android.webkit.WebViewClient {
+    public void *(android.webkit.WebView, java.lang.String);
+}
+
+-keepclassmembers class com.null.test.MainActivity$JSInterfacel {
+    &amp;lt;methods&amp;gt;;
+}
+
+-dontwarn java.lang.invoke.*
+-keep class **.R$* { *; }
+
+-dontwarn android.support.v7.**
+-keep class android.support.v7.** { *; }
+-keep interface android.support.v7.** { *; }
+
+-dontwarn android.support.v4.**
+-dontwarn **CompatHoneycomb
+-dontwarn **CompatHoneycombMR2
+-dontwarn **CompatCreatorHoneycombMR2
+-keep interface android.support.v4.app.** { *; }
+-keep interface android.support.v4.** { *; }
+-keep class android.support.v4.** { *; }
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.app.Fragment
+
+-keep public class * extends android.database.sqlite.SQLiteOpenHelper{*;}
+
+-dontwarn Encryption.**
+-keep class Encryption.** { *; }
+
+-dontwarn JavaInteropKeys.**
+-keep class JavaInteropKeys.** { *; }
+
+-dontwarn android.support.**
+-keep class android.support.** { *; }
+
+-dontwarn butterknife.**
+-keep class butterknife.** { *; }
+
+-dontwarn ch.imvs.sdes4j.**
+-keep class ch.imvs.sdes4j.** { *; }
+
+-dontwarn com.a.**
+-keep class com.a.** { *; }
+
+-dontwarn com.b.**
+-keep class com.b.** { *; }
+
+-dontwarn com.alibaba.**
+-keep class com.alibaba.** { *; }
+
+-dontwarn com.baidu.**
+-keep class com.baidu.** { *; }
+
+-dontwarn com.bumptech.glide.**
+-keep class com.bumptech.glide.** { *; }
+
+-dontwarn com.daimajia.**
+-keep class com.daimajia.** { *; }
+
+-dontwarn com.devspark.appmsg.**
+-keep class com.devspark.appmsg.** { *; }
+
+-dontwarn com.easemob.**
+-keep class com.easemob.** { *; }
+
+-dontwarn com.flyco.**
+-keep class com.flyco.** { *; }
+
+-dontwarn com.google.**
+-keep class com.google.** { *; }
+
+-dontwarn com.iflytek.**
+-keep class com.iflytek.** { *; }
+
+-dontwarn com.jcodecraeer.**
+-keep class com.jcodecraeer.** { *; }
+
+-dontwarn com.mobsandgeeks.saripaar.**
+-keep class com.mobsandgeeks.saripaar.** { *; }
+
+-dontwarn com.nineoldandroids.**
+-keep class com.nineoldandroids.** { *; }
+
+-dontwarn com.novell.sasl.client.**
+-keep class com.novell.sasl.client.** { *; }
+
+-dontwarn com.pwdgame.combinebitmap.**
+-keep class com.pwdgame.combinebitmap.** { *; }
+
+-dontwarn com.rengwuxian.materialedittext.**
+-keep class com.rengwuxian.materialedittext.** { *; }
+
+-dontwarn com.tencent.bugly.**
+-keep class com.tencent.bugly.** { *; }
+
+-dontwarn com.tencent.**
+-keep class com.tencent.** { *; }
+
+-dontwarn com.umeng.**
+-keep class com.umeng.** { *; }
+
+-dontwarn com.xonami.javaBells.**
+-keep class com.xonami.javaBells.** { *; }
+
+-dontwarn com.yalantis.ucrop.**
+-keep class com.yalantis.ucrop.** { *; }
+
+-dontwarn com.zhy.http.okhttp.**
+-keep class com.zhy.http.okhttp.** { *; }
+
+-dontwarn commons.validator.routines.**
+-keep class commons.validator.routines.** { *; }
+
+-dontwarn de.greenrobot.dao.**
+-keep class de.greenrobot.dao.** { *; }
+
+-dontwarn de.measite.smack.**
+-keep class de.measite.smack.** { *; }
+
+-dontwarn gov.nist.**
+-keep class gov.nist.** { *; }
+
+-dontwarn internal.org.apache.**
+-keep class internal.org.apache.** { *; }
+
+-dontwarn io.zhijian.**
+-keep class io.zhijian.** { *; }
+
+-dontwarn javax.**
+-keep class javax.** { *; }
+
+-dontwarn my.**
+-keep class my.** { *; }
+
+-dontwarn net.java.**
+-keep class net.java.** { *; }
+
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *; }
+
+-dontwarn okio.**
+-keep class okio.** { *; }
+
+-dontwarn org.**
+-keep class org.** { *; }
+
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+
+-dontwarn rx.**
+-keep class rx.** { *; }
+
+-dontwarn android.view.**
+-keep class android.view.** { *; }
+
+-dontwarn com.yangda.common.**
+-keep class com.yangda.common.** { *; }
+
+-dontwarn com.yangda.widget.**
+-keep class com.yangda.widget.** { *; }
+
+-dontwarn com.yangda.edu.ui.adapter.**
+-keep class com.yangda.edu.ui.adapter.** { *; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is my compile configuration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;configuration = [
+            buildToolsVersion               : &quot;23.0.1&quot;,
+            compileVersion                  : 23,
+            minSdkVersion                   : 14,
+            targetSdkVersion                : 23,
+            versionCode                     : 1,
+            versionName                     : &quot;1.0.0&quot;,
+            multiDexEnabled                 : true,
+            renderscriptTargetApi           : 20,
+            renderscriptSupportModeEnabled  : false
+    ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;maybe this is duplicate issues, like: &lt;a href=&quot;http://stackoverflow.com/questions/32413228/proguard-issues-attempt-to-invoke-virtual-method-void-android-widget-listview&quot;&gt;Proguard issues: Attempt to invoke virtual method &amp;#39;void android.widget.ListView.setAdapter(android.widget.ListAdapter)&amp;#39; on a null object reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;maybe due to android sdk 23, but i cannot downgrading SDK version.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336929</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Fail to create the ToolBar in Fragment</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="android-fragments" />
+        <author>
+            <name>Bui Quang Huy</name>
+            <uri>http://stackoverflow.com/users/5580095</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336929/fail-to-create-the-toolbar-in-fragment" />
+        <published>2016-05-20T02:16:50Z</published>
+        <updated>2016-05-20T02:16:50Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;m trying to create the toolbar in fragment but get NullPointerException. I used ToolBar v7. BaseFragment is extended Fragment.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class SignUpFragment extends BaseFragment {
+
+    public Toolbar toolbar;
+
+    @Override
+    protected int getLayoutResourceId() {
+        return R.layout.fragment_sign_up;
+    }
+
+    @Override
+    protected void initView(View view) {
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbarSignUp);
+        ((TextView) toolbar.findViewById(R.id.toolbarSignUpTitle)).setText(R.string.sign_up);
+    }
+
+    @Override
+    protected void initEvent() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336921</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Android Studie App Development recieving string input or Settting Image resource</title>
+            <category scheme="http://stackoverflow.com/tags" term="java" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="import" />
+        <author>
+            <name>BuddyTheElf</name>
+            <uri>http://stackoverflow.com/users/6358882</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336921/android-studie-app-development-recieving-string-input-or-settting-image-resource" />
+        <published>2016-05-20T02:15:31Z</published>
+        <updated>2016-05-20T02:15:31Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;Okay so I have this code that I wrote for an Android App personality quiz in Android studio. My GUi window works correctly and it correctly links to my phone and looks good. However, when i click the submission button(upload to the force) a different picture does not show up like it should when I enter the correct responses. I know it isnt a problem with my pictures since if I take the ImageSetter out of the switch case it appears in the App. So the conclusion I have come to is that somehow my code for reading in the text from the EditText field box int he GUI window is not right or I am building the list of letters to check wrong. (Yes I know putting it in an arraylist just to make it into a string is redundant however I was doing it the first way I thought of. Any suggestions Ive spent hours on this and cant think of what is going wrong?? You guys are the best I appreciate it.&lt;/p&gt;
+
+&lt;p&gt;`&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+    EditText nameTxt, answer2, answer3, answer4, answer5, answer6, answer7, answer8;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final ImageView imageview = (ImageView)findViewById(R.id.showCharacter);
+
+
+        //have to cast it into type (EditText) since by default is is a GUI container and an error
+        //will be generated if you do not again specify that the container is type EditText
+        nameTxt = (EditText) findViewById(R.id.inputA1);//links nameTxt to GUI editText field
+        answer2 = (EditText) findViewById(R.id.inputA2);//links nameTxt to GUI editText field
+        answer3 = (EditText) findViewById(R.id.inputA3);//links nameTxt to GUI editText field
+        answer4 = (EditText) findViewById(R.id.inputA4);//links nameTxt to GUI editText field
+        answer5 = (EditText) findViewById(R.id.inputA5);//links nameTxt to GUI editText field
+        answer6 = (EditText) findViewById(R.id.inputA6);//links nameTxt to GUI editText field
+        answer7 = (EditText) findViewById(R.id.inputA7);//links nameTxt to GUI editText field
+        answer8 = (EditText) findViewById(R.id.inputA8);//links nameTxt to GUI editText field
+
+
+        ArrayList&amp;lt;String&amp;gt; responses = new ArrayList&amp;lt;String&amp;gt;();//string array to hold temp responses
+
+        String respStr = &quot;&quot;;//used for comparison to the answer key since it is easier than using an
+        //arraylist for comparison.
+
+        String character = &quot;&quot;;// honestly this doesnt output anything or do anything except help me
+        //keep track of which key corresponds to which picture so I dont get confused
+
+        //creates a new button  called addBtn and likes it to the GUI button btnAdd
+        final Button addBtn = (Button) findViewById(R.id.btnAdd);
+        if (addBtn != null) {//designed to not allow the submission button to be clickable unless
+            //the first field is filled out
+            addBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+              public void onClick(View view) {
+               Toast.makeText(getApplicationContext(),&quot;Using the Force&quot;, Toast.LENGTH_SHORT).show();
+              }
+            }) ;
+        }
+
+        nameTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int       before, int count) {
+                addBtn.setEnabled(String.valueOf(nameTxt.getText()).trim().length() &amp;gt; 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //takes the input of the first question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant wway to ensure that input from the
+        //user can be either upper or lower case.
+        String q1S = &quot;&quot;;
+        q1S = nameTxt.getText().toString();
+        q1S = q1S.trim().toLowerCase();
+        if (q1S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q1S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q1S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q1S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q1S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+        for(int i =0; 0&amp;gt;responses.size(); i++){
+
+            respStr += responses.get(i);
+        }
+
+
+        //takes the input of the second question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant wway to ensure that input from the
+        //user can be either upper or lower case.
+        String q2S = &quot;&quot;;
+        q2S = nameTxt.getText().toString();
+        q2S = q2S.trim().toLowerCase();
+        if (q2S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q2S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q2S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q2S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q2S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+        //takes the input of the third question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q3S = &quot;&quot;;
+        q3S = nameTxt.getText().toString();
+        q3S = q3S.trim().toLowerCase();
+        if (q3S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q3S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q3S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q3S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q3S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+
+        //takes the input of the fourth question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q4S = &quot;&quot;;
+        q4S = nameTxt.getText().toString();
+        q4S = q4S.trim().toLowerCase();
+        if (q4S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q4S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q4S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q4S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q4S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+        //takes the input of the fifth question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q5S = &quot;&quot;;
+        q5S = nameTxt.getText().toString();
+        q5S = q5S.trim().toLowerCase();
+        if (q5S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q5S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q5S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q5S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q5S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+
+        //takes the input of the sixth question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q6S = &quot;&quot;;
+        q6S = nameTxt.getText().toString();
+        q6S = q6S.trim().toLowerCase();
+        if (q6S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q6S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q6S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q6S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q6S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+        //takes the input of the seventh question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q7S = &quot;&quot;;
+        q7S = nameTxt.getText().toString();
+        q7S = q7S.trim().toLowerCase();
+        if (q7S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q7S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q7S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q7S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q7S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+
+        //takes the input of the eigth question using getText() then it must convert getText which
+        //of type EditText to type string using toString. Then the variable is set to itself with
+        //no leading or trailing spaces using the .trim(0 and then made lowercase by using the
+        //toLowerCase. equalsIgnoreCase is used as a redundant way to ensure that input from the
+        //user can be either upper or lower case.
+        String q8S = &quot;&quot;;
+        q8S = nameTxt.getText().toString();
+        q8S = q8S.trim().toLowerCase();
+        if (q8S.equalsIgnoreCase(&quot;a&quot;)){
+            responses.add(&quot;a&quot;);
+        }
+        if (q8S.equalsIgnoreCase(&quot;b&quot;)){
+            responses.add(&quot;b&quot;);
+        }
+        if (q8S.equalsIgnoreCase(&quot;c&quot;)){
+            responses.add(&quot;c&quot;);
+        }
+        if (q8S.equalsIgnoreCase(&quot;d&quot;)){
+            responses.add(&quot;d&quot;);
+        }
+        if (q8S.equalsIgnoreCase(&quot;e&quot;)){
+            responses.add(&quot;e&quot;);
+        }
+        //imageview.setImageResource(R.drawable.sidious);
+
+
+
+
+       switch(respStr){
+            case &quot;aabaacaa&quot;:
+                character =&quot;Sideous&quot;;
+                imageview.setImageResource(R.drawable.sidious);
+                break;
+            case &quot;abdbadaa&quot;:
+                character =&quot;Maul&quot;;
+                imageview.setImageResource(R.drawable.maul);
+                break;
+            case &quot;aadccdab&quot;:
+                character =&quot;Vader&quot;;
+                imageview.setImageResource(R.drawable.vader);
+                break;
+            case &quot;bbbdcaaa&quot;:
+                character =&quot;Boba Fett&quot;;
+                imageview.setImageResource(R.drawable.boba);
+                break;
+            case &quot;abeeadba&quot;:
+                character =&quot;Grevous&quot;;
+                imageview.setImageResource(R.drawable.grievous);
+                break;
+            case &quot;aaacbabb&quot;:
+                character =&quot;Windu&quot;;
+                imageview.setImageResource(R.drawable.windu);
+                break;
+            case &quot;abacbbbb&quot;:
+                character =&quot;Obi-Won-Kenobi&quot;;
+                imageview.setImageResource(R.drawable.kenobi);
+                break;
+            case &quot;bacbcaab&quot;:
+                character =&quot;Solo&quot;;
+                imageview.setImageResource(R.drawable.solo);
+                break;
+            case &quot;bbaccaba&quot;:
+                character =&quot;Clone&quot;;
+                imageview.setImageResource(R.drawable.trooper);
+                break;
+            case &quot;aacbbabb&quot;:
+                character =&quot;Anakin&quot;;
+                imageview.setImageResource(R.drawable.anakin);
+                break;
+            default:
+                character = &quot;R2D2&quot;;
+        }
+
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;`&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336898</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">How to store a MySQL data in a variable in Android Studio?</title>
+            <category scheme="http://stackoverflow.com/tags" term="php" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="mysql" />
+            <category scheme="http://stackoverflow.com/tags" term="android-studio" />
+            <category scheme="http://stackoverflow.com/tags" term="wamp" />
+        <author>
+            <name>Mohendra</name>
+            <uri>http://stackoverflow.com/users/5772378</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336898/how-to-store-a-mysql-data-in-a-variable-in-android-studio" />
+        <published>2016-05-20T02:13:04Z</published>
+        <updated>2016-05-20T02:19:14Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I am new to Android Studio, and I have created a database in wamp server and now want to retrieve the data and store it in a variable in Android Studio and use it for something else.
+example: my table in the database consists of a field with integer data type, what I want to do in android studio is, if the value of the field =&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336804</id>
+        <re:rank scheme="http://stackoverflow.com">-1</re:rank>
+        <title type="text">How do I retrieve data from PHP using Android Eclipse? I want to create Login Activity in my Android</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>Karlo Nico Amatorio</name>
+            <uri>http://stackoverflow.com/users/6358873</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336804/how-do-i-retrieve-data-from-php-using-android-eclipse-i-want-to-create-login-ac" />
+        <published>2016-05-20T02:02:40Z</published>
+        <updated>2016-05-20T02:02:40Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;How do I retrieve data from PHP using Android Eclipse? I want to create Login Activity in my Anrdoid.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336795</id>
+        <re:rank scheme="http://stackoverflow.com">-1</re:rank>
+        <title type="text">How to retrieve data from website to android</title>
+            <category scheme="http://stackoverflow.com/tags" term="java" />
+            <category scheme="http://stackoverflow.com/tags" term="php" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>Exc3m1206</name>
+            <uri>http://stackoverflow.com/users/5962569</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336795/how-to-retrieve-data-from-website-to-android" />
+        <published>2016-05-20T02:00:47Z</published>
+        <updated>2016-05-20T02:25:51Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;ve made a 3 website that share 1 database and already added a JSON php file that works.  Now I&#39;m having trouble displaying or showing the data from the website in my android app.&lt;/p&gt;
+
+&lt;p&gt;Welcome.java&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class Welcome extends Activity {
+    Button welcome;
+    AQuery aq;
+    JSONArray articles = new JSONArray();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
+        aq = new AQuery(this);
+        welcome = (Button) findViewById(R.id.welcome);
+
+        welcome.setOnClickListener(new OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), NewsFeed.class);
+                startActivity(i);
+
+            }
+
+        });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.welcome, menu);
+        return true;
+    }
+    public void getNewsfeeds(){
+        aq.ajax(&quot;http://sillimaninquirer.esy.es/TWS/sidata.php?key=none&quot;, JSONObject.class, new AjaxCallback&amp;lt;JSONObject&amp;gt;(){
+            @Override
+            public void callback(String url, JSONObject jo, AjaxStatus as){
+                try {
+                    if(jo!=null){
+                        articles = jo.getJSONArray(&quot;article&quot;);
+                        Toast.makeText(getBaseContext(), &quot;Articles: &quot;+articles, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getBaseContext(), &quot;Error: No internet connection&quot;, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Manage.setArticles(articles);
+            }
+
+        });
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NewsFeed.java&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class NewsFeed extends Activity {
+    ListView feed_listView;
+    EditText search;
+    Button t, a, d, c, k;
+    JSONArray articles = new JSONArray();
+    ArrayList&amp;lt;String&amp;gt; title     = new ArrayList&amp;lt;String&amp;gt;(); 
+    ArrayList&amp;lt;String&amp;gt; content   = new ArrayList&amp;lt;String&amp;gt;();  
+    ArrayList&amp;lt;String&amp;gt; date      = new ArrayList&amp;lt;String&amp;gt;();  
+    ArrayList&amp;lt;String&amp;gt; cpid  = new ArrayList&amp;lt;String&amp;gt;();  
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_news_feed);
+
+        addArticlesToVar();
+        search = (EditText) findViewById(R.id.search);
+        feed_listView = (ListView) findViewById(R.id.listView_NewsFeed);
+
+        final Adapter adapter = new Adapter(this,title, content, date,cpid);
+        feed_listView.setAdapter(adapter);
+
+        feed_listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+        feed_listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView&amp;lt;?&amp;gt; parent, View v, int position, long id) {
+                String t = title.get(position);
+                String c = content.get(position);
+                String d = date.get(position);
+                String cat = cpid.get(position);
+                Intent i = new Intent(v.getContext(), Article.class);
+                i.putExtra(&quot;t&quot;, t);
+                i.putExtra(&quot;c&quot;, c);
+                i.putExtra(&quot;d&quot;, d);
+                i.putExtra(&quot;cat&quot;, cat);
+                startActivity(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView&amp;lt;?&amp;gt; parent) {
+                //Do nothing
+            }
+        });
+        search.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+        });
+
+    }
+    public void AddPref(View v){
+        Intent i = new Intent(v.getContext(), AddPreference.class);
+        startActivity(i);
+    }
+    public void News(View v){
+        Intent i = new Intent(v.getContext(), NewsFeed.class);
+        startActivity(i);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.news_feed, menu);
+        return true;
+    }
+    public void addArticlesToVar(){
+         articles = Manage.getArticles();
+         for(int x=0; x&amp;lt;articles.length(); x++){
+             try {
+                JSONObject article = articles.getJSONObject(x);
+                title.add(article.getString(&quot;title&quot;));
+                content.add(article.getString(&quot;content&quot;));
+                date.add(article.getString(&quot;pdate&quot;));
+                cpid.add(article.getString(&quot;cpid&quot;));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+         }
+     }
+
+}
+class Adapter extends ArrayAdapter&amp;lt;String&amp;gt;{
+    Context context;
+    ArrayList&amp;lt;String&amp;gt; title, content, date, cpid;
+    //ArrayList&amp;lt;Articles&amp;gt; art1, art2;
+
+    Adapter (Context context, ArrayList&amp;lt;String&amp;gt; title,ArrayList&amp;lt;String&amp;gt; content, ArrayList&amp;lt;String&amp;gt; date, ArrayList&amp;lt;String&amp;gt;cpid){
+
+        super(context, R.layout.row,R.id.newsfeed_Title, title);
+        this.context  = context;
+        this.content  = content;
+        this.date     = date;
+        this.title    = title;
+        this.cpid = cpid;
+
+    }
+    public View getView(int position, View convertView, ViewGroup parent){
+        String t=&quot;&quot;, c=&quot;&quot;;
+        String tit=&quot;&quot;, con=&quot;&quot;;
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View row = layoutInflater.inflate(R.layout.row, parent, false);
+
+        TextView tv_title   = (TextView) row.findViewById(R.id.newsfeed_Title);
+        TextView tv_content = (TextView) row.findViewById(R.id.newsfeed_Contentext);
+        TextView tv_date    = (TextView) row.findViewById(R.id.newsfeed_date);
+        t = title.get(position);
+        c = content.get(position);
+        for(int tc=0; tc&amp;lt;13; tc++){
+            tit+=t.charAt(tc);
+        }
+        for(int cc=0; cc&amp;lt;30; cc++){
+            con+=c.charAt(cc);
+        }
+        tv_title.setText(tit);
+        tv_content.setText(con);
+        tv_date.setText(&quot;By &quot;+cpid.get(position)+&quot;   &quot;+date.get(position));
+
+        return row;
+
+
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Manage.java&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import org.json.JSONArray;
+
+public class Manage {
+    //key=none
+    static JSONArray articles = new JSONArray();
+    public static void setArticles(JSONArray articles){
+        Manage.articles = articles;
+    }
+    public static JSONArray getArticles(){
+        return articles;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;row.xml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/LinearLayout1&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot; &amp;gt;
+
+    &amp;lt;TextView
+        android:id=&quot;@+id/newsfeed_Title&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Title&quot;
+        android:textStyle=&quot;bold&quot;
+        android:paddingTop=&quot;5px&quot;
+        android:textAppearance=&quot;?android:attr/textAppearanceMedium&quot; /&amp;gt;
+
+    &amp;lt;TextView
+        android:id=&quot;@+id/newsfeed_date&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Date&quot;
+        android:textAppearance=&quot;?android:attr/textAppearanceSmall&quot;
+        android:textSize=&quot;18px&quot;
+        android:textStyle=&quot;bold|italic&quot; /&amp;gt;
+
+    &amp;lt;TextView
+        android:id=&quot;@+id/newsfeed_Contentext&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Contentext&quot; 
+        android:paddingTop=&quot;5px&quot;
+        android:textStyle=&quot;italic&quot;
+        android:paddingLeft=&quot;25px&quot;
+        android:textAppearance=&quot;?android:attr/textAppearanceSmall&quot; /&amp;gt;
+
+&amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336791</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">How to make a third dependency or jar in Android studio?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>MPhone</name>
+            <uri>http://stackoverflow.com/users/6129551</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336791/how-to-make-a-third-dependency-or-jar-in-android-studio" />
+        <published>2016-05-20T02:00:00Z</published>
+        <updated>2016-05-20T02:00:00Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;As a new android developer, I just know how to import the third dependencies made by other android developers.But now ,I write a simple custom view ,including a class : &lt;a href=&quot;http://i.stack.imgur.com/VEPkL.png&quot; rel=&quot;nofollow&quot;&gt;enter image description here&lt;/a&gt; and a declare-styleable:&lt;a href=&quot;http://i.stack.imgur.com/r4DqG.png&quot; rel=&quot;nofollow&quot;&gt;enter image description here&lt;/a&gt;,for convenience for the future,I want make it to a dependency or a jar.I don&#39;t know how to do it.Thanks for your help!&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336780</id>
+        <re:rank scheme="http://stackoverflow.com">1</re:rank>
+        <title type="text">How to resize Image to button?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="image" />
+            <category scheme="http://stackoverflow.com/tags" term="android-studio" />
+        <author>
+            <name>DkgMarine</name>
+            <uri>http://stackoverflow.com/users/5634263</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336780/how-to-resize-image-to-button" />
+        <published>2016-05-20T01:57:52Z</published>
+        <updated>2016-05-20T02:20:50Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;So I have an &lt;code&gt;ImageButton&lt;/code&gt; but the image is a very big fit for it. I tried &lt;code&gt;android:scaleType=&quot;center&quot;&lt;/code&gt; and it failed because the image centered but it was too small and tried &lt;code&gt;fitXY&lt;/code&gt; but same result.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:background=&quot;#f1e8e8&quot;
+    tools:context=&quot;com.example.bassam.myapplication123.MainActivity&quot;&amp;gt;
+    &amp;lt;ImageButton android:id=&quot;@+id/myButton&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;150dp&quot;
+        android:padding=&quot;100dip&quot;
+        android:background=&quot;#ffffff&quot;
+        android:src=&quot;@drawable/Work&quot;
+        android:scaleType=&quot;fitXY&quot;
+        &amp;gt;&amp;lt;/ImageButton&amp;gt;
+&amp;lt;/RelativeLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336743</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">The show method for fragment transactions isn&#39;t working</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="android-fragments" />
+            <category scheme="http://stackoverflow.com/tags" term="show" />
+            <category scheme="http://stackoverflow.com/tags" term="fragmenttransaction" />
+            <category scheme="http://stackoverflow.com/tags" term="android-fragmentmanager" />
+        <author>
+            <name>user6104576</name>
+            <uri>http://stackoverflow.com/users/6104576</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336743/the-show-method-for-fragment-transactions-isnt-working" />
+        <published>2016-05-20T01:53:03Z</published>
+        <updated>2016-05-20T01:59:35Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;My problem is that when I use &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;getFragmentManager().beginTransaction().show(myfragment).commit()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;nothing is happening. The &lt;code&gt;hide()&lt;/code&gt; method works perfectly. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if(getFragmentManager().findFragmentByTag(current_fragment_tag) != null){
+    getFragmentManager().beginTransaction().hide(getFragmentManager().findFragmentByTag(previous_fragment_tag)).addToBackStack(null).commit();
+    getFragmentManager().beginTransaction().show(current_fragment).commit();
+}else{
+    getFragmentManager().beginTransaction().add(page_container_Id,current_fragment,current_fragment_tag).commit();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336688</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">CountDownTimer Is Not Cancelling --- Continues to Run After Cancel()</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="timer" />
+            <category scheme="http://stackoverflow.com/tags" term="countdown" />
+            <category scheme="http://stackoverflow.com/tags" term="countdowntimer" />
+        <author>
+            <name>Elliptica</name>
+            <uri>http://stackoverflow.com/users/5026136</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336688/countdowntimer-is-not-cancelling-continues-to-run-after-cancel" />
+        <published>2016-05-20T01:46:02Z</published>
+        <updated>2016-05-20T01:46:02Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;ve implemented a CountDownTimer in my code as follows: At the top of the class, I create&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CountDownTimer myTimer;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then when a user presses button Start, the following method is called:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private void countme() 
+{
+    final int tick = 500;
+    final int countTime = 10000;
+
+    myTimer = new CountDownTimer(countTime, tick) {
+
+        @Override
+        public void onTick(final long millisUntilFinished) { }
+
+        @Override
+        public void onFinish() {
+            myPicture.setVisibility(View.GONE);
+        }
+    };
+
+    myTimer.start();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have button Stop all &lt;code&gt;myTimer.cancel()&lt;/code&gt;. As you can see, if the timer is not cancelled, myPicture will disappear.&lt;/p&gt;
+
+&lt;p&gt;Even if I click the stop button so that myTimer.cancel() is called (I checked this with log statements), the counter still continues to count down and to make the picture disappear when it&#39;s done.&lt;/p&gt;
+
+&lt;p&gt;Why isn&#39;t it stopping? How do I get it to actually cancel?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336652</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Should I finish and create the previous activity again when returning back?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="android-intent" />
+        <author>
+            <name>UDKOX</name>
+            <uri>http://stackoverflow.com/users/4677126</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336652/should-i-finish-and-create-the-previous-activity-again-when-returning-back" />
+        <published>2016-05-20T01:41:41Z</published>
+        <updated>2016-05-20T01:41:41Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;An app with several Activities, for example: MainActivity and GameActivity. &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;GameActivity&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;An Android game&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;MainActivity&lt;/em&gt; &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A menu, launches GameActiviy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When you launch &lt;code&gt;GameActivity&lt;/code&gt; from the &lt;code&gt;MainActivity&lt;/code&gt;, you can &lt;code&gt;finish()&lt;/code&gt; the &lt;code&gt;MainActivity&lt;/code&gt;, and then create it again when leaving &lt;code&gt;GameActivity&lt;/code&gt; with the following code &lt;code&gt;startActivity(new Intent(MainActivity.class))&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another way is not to &lt;code&gt;finish()&lt;/code&gt; the &lt;code&gt;MainActivity&lt;/code&gt; and just &lt;code&gt;finish()&lt;/code&gt; the &lt;code&gt;GameActivity&lt;/code&gt; when it&#39;s time comes. &lt;/p&gt;
+
+&lt;p&gt;My question is, when should each one be used ? Is there any difference in using one or the other ?&lt;/p&gt;
+
+&lt;p&gt;Hope it&#39;s clear.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336624</id>
+        <re:rank scheme="http://stackoverflow.com">-2</re:rank>
+        <title type="text">com.android.build.api.transform.TransformException: java.util.zip.ZipException</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>taylor</name>
+            <uri>http://stackoverflow.com/users/6355830</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336624/com-android-build-api-transform-transformexception-java-util-zip-zipexception" />
+        <published>2016-05-20T01:38:08Z</published>
+        <updated>2016-05-20T01:38:08Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;**Error:Execution failed for task &#39;:app:transformClassesWithJarMergingForHuaweiDebug&#39;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;com.android.build.api.transform.TransformException: java.util.zip.ZipException: duplicate entry: org/apache/http/entity/mime/content/ByteArrayBody.class**&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This question has been annoying me a long time . how can I sovle it? please.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336525</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Android Volley | Extract json from multiple urls</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="json" />
+            <category scheme="http://stackoverflow.com/tags" term="parsing" />
+            <category scheme="http://stackoverflow.com/tags" term="android-volley" />
+        <author>
+            <name>rafavinu</name>
+            <uri>http://stackoverflow.com/users/1760871</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336525/android-volley-extract-json-from-multiple-urls" />
+        <published>2016-05-20T01:25:26Z</published>
+        <updated>2016-05-20T01:51:31Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I am currently using Volley to extract json contents using the following code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;JsonArrayRequest servicesStatus = new JsonArrayRequest(url1,
+            new Response.Listener&amp;lt;JSONArray&amp;gt;() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    Log.d(TAG, response.toString());
+                    hidePDialog();
+
+                    // Parsing json
+                    for (int i = 0; i &amp;lt; response.length(); i++) {
+                        try {
+
+                            JSONObject obj = response.getJSONObject(i);
+                            // Having obj to process further
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    // notifying list adapter about data changes
+                    // so that it renders the list view with updated data
+                    adapter.notifyDataSetChanged();
+                }
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            VolleyLog.d(TAG, &quot;Error: &quot; + error.getMessage());
+            hidePDialog();
+
+        }
+    });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, I want one more json handler for the new url and the dialog to be closed once it has successfully downloaded from both the urls.&lt;/p&gt;
+
+&lt;p&gt;I tried to copy paste the above thing with url1 replaced by url2 and different jsonarrayrequest name. And added the hideDialog() in the second one. But the second one is not being called at all. &lt;/p&gt;
+
+&lt;p&gt;Can anyone please guide how to accomplish this.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336425</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Json not appear with ajax in cordova</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="mysql" />
+            <category scheme="http://stackoverflow.com/tags" term="json" />
+            <category scheme="http://stackoverflow.com/tags" term="ajax" />
+            <category scheme="http://stackoverflow.com/tags" term="cordova" />
+        <author>
+            <name>dwiyanto</name>
+            <uri>http://stackoverflow.com/users/6339046</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336425/json-not-appear-with-ajax-in-cordova" />
+        <published>2016-05-20T01:12:15Z</published>
+        <updated>2016-05-20T01:12:15Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;Once the problem insert the data cordova to mysql using ajax to host finished now I see the new constraints that display data from the host , when I run localhost data appears by calling json from the local server , but when I call up data from the host data server does not appear when using the same script.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(document).ready(function()
+{
+
+    var getData=&quot;http://myweb/json.php&quot;;
+    $.getJSON(getData,function(result){
+        console.log(result);
+        $.each(result, function(i, field){
+            var id_code=field.id_code;
+            var qrcode=field.qrcode;
+            var judul=field.judul;
+            var pengarang=field.pengarang;          
+            $(&quot;#listview&quot;).append(&quot;&amp;lt;li&amp;gt;&amp;lt;a class=&#39;item&#39; href=&#39;form.html?id_code=&quot;+id_code+&quot;&amp;amp;judul=&quot;+judul+&quot;&amp;amp;pengarang=&quot;+pengarang+&quot;&#39;&amp;gt;&amp;lt;h2&amp;gt;&quot;+ judul +&quot;&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;&quot;+ pengarang +&quot;&amp;lt;/p&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&quot;);
+        });
+    }); 
+
+});
+
+
+  &amp;lt;div data-role=&quot;main&quot; class=&quot;ui-content&quot;&amp;gt;
+    &amp;lt;ul id=&quot;listview&quot; &amp;gt;&amp;lt;/ul&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336385</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Enabling offline capabilities throws &quot;java.lang.IllegalStateException: FirebaseApp with name [DEFAULT] doesn&#39;t exist.&quot;</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="firebase" />
+            <category scheme="http://stackoverflow.com/tags" term="firebase-database" />
+        <author>
+            <name>Luke</name>
+            <uri>http://stackoverflow.com/users/483458</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336385/enabling-offline-capabilities-throws-java-lang-illegalstateexception-firebasea" />
+        <published>2016-05-20T01:08:01Z</published>
+        <updated>2016-05-20T01:08:01Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;m attempting to migrate my app to Firebase 3. I&#39;m attemping to enable data persistence in my Application class using the following line of code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, the following exception is thrown and the app crashes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java.lang.IllegalStateException: FirebaseApp with name [DEFAULT] doesn&#39;t exist. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All other features are working as expected, has anyone else got this working?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336369</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Pass PendingIntent Request Code To Put Extra</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+        <author>
+            <name>wuno</name>
+            <uri>http://stackoverflow.com/users/2218253</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336369/pass-pendingintent-request-code-to-put-extra" />
+        <published>2016-05-20T01:06:19Z</published>
+        <updated>2016-05-20T01:37:28Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I need to add a unique ID to each of my alarms which are being created inside of a PendingIntent. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Currently the request code is being set to 0.&lt;/p&gt;
+
+&lt;p&gt;I want to be able to list the alarms inside of a &lt;code&gt;listview&lt;/code&gt; then allow for the user to cancel the alarms times from the list. My logic is to use the unique ID for each alarm to cancel. &lt;/p&gt;
+
+&lt;p&gt;How do I set a unique id for each alarm created inside my pendingIntent?&lt;/p&gt;
+
+&lt;p&gt;This is the method I am using to &lt;code&gt;setAlarm()&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; public void setAlarm(Context context, Long affirmationTime){
+        alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), affirmationTime, alarmIntent);
+
+        ComponentName receiver = new ComponentName(context, BootReceiver.class);
+        PackageManager pm = context.getPackageManager();
+
+        pm.setComponentEnabledSetting(receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the method I am going to be using to &lt;code&gt;cancelAlarm()&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   public void cancelAlarm(Context context){
+        // If the alarm has been set, cancel it.
+        if (alarmManager != null) {
+            alarmManager.cancel(alarmIntent);
+        }
+        // Disable {@code SampleBootReceiver} so that it doesn&#39;t automatically restart the
+        // alarm when the device is rebooted.
+        ComponentName receiver = new ComponentName(context, BootReceiver.class);
+        PackageManager pm = context.getPackageManager();
+
+        pm.setComponentEnabledSetting(receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336364</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">How do I modify android &amp; iOS project to make the entry file as a common js file in react native?</title>
+            <category scheme="http://stackoverflow.com/tags" term="javascript" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="ios" />
+            <category scheme="http://stackoverflow.com/tags" term="react-native" />
+        <author>
+            <name>ZeroChow</name>
+            <uri>http://stackoverflow.com/users/5694397</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336364/how-do-i-modify-android-ios-project-to-make-the-entry-file-as-a-common-js-file" />
+        <published>2016-05-20T01:04:53Z</published>
+        <updated>2016-05-20T01:04:53Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;As mentioned in the title, I wanna change the android entry file(index.android.js) and iOS entry file(index.ios.js) to a common js file named &lt;code&gt;index.js&lt;/code&gt;, How do I modify in project?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336269</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Is Android Instant App different from app streaming?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="googleio" />
+        <author>
+            <name>Akshay Kulkarni</name>
+            <uri>http://stackoverflow.com/users/4321201</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336269/is-android-instant-app-different-from-app-streaming" />
+        <published>2016-05-20T00:47:55Z</published>
+        <updated>2016-05-20T01:00:32Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;As from Google I/O 2016 key note, Google has &lt;a href=&quot;http://android-developers.blogspot.in/2016/05/android-instant-apps-evolving-apps.html?m=1&quot; rel=&quot;nofollow&quot;&gt;Introduced Android Instant Apps&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is pretty clear from the description that it is going to be possible to download a part of application (that is stream?) when it will be out for the developers to try it.&lt;/p&gt;
+
+&lt;p&gt;Couple of posts like &lt;a href=&quot;http://www.recode.net/2016/5/18/11696010/google-instant-apps-deep-linking&quot; rel=&quot;nofollow&quot;&gt;This one&lt;/a&gt; quotes about Instant Apps :&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;While this is different from Google&#39;s efforts to do app streaming inside search, it&#39;s in the same spirit — and gives Google similar access to previously walled-off data inside apps.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I am wondering how it is different from app streaming if the app is going to be installed partially with Android Instant Apps?&lt;/p&gt;
+
+&lt;p&gt;Any additional information about this new leap in android development will be helpful.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336263</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Create multiple instances of an existing listview class dynamically in Android</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="sqlite" />
+            <category scheme="http://stackoverflow.com/tags" term="dynamic" />
+            <category scheme="http://stackoverflow.com/tags" term="dynamically-generated" />
+        <author>
+            <name>Charles Li</name>
+            <uri>http://stackoverflow.com/users/4766340</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336263/create-multiple-instances-of-an-existing-listview-class-dynamically-in-android" />
+        <published>2016-05-20T00:47:04Z</published>
+        <updated>2016-05-20T01:36:12Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;m developing a vocab building app that stores data into an SQLite database. I have a category for different types of vocabulary, for example, a category for GMAT. Each of this category is an activity and has its own table where I store a list of default vocab. The classes for these categories all extend an abstract class full of methods for the menu option items, such as search, add, and delete vocab functionalities.&lt;/p&gt;
+
+&lt;p&gt;Now I have 4 categories which mean I have 4 tables in my SQLite database and an activity for each of the categories. However, I want to allow the user to be able to add new categories as they click on a button. The newly added category will be identical to the 4 categories I have already created. So any newly added category will have the same layout, menu items, and functionalities.
+I have thought of one solution which is to create these categories first but make it invisible to the users and only show them to the user when the user performs an action to add new categories. In this case, I&#39;ll create the activities and tables in advance and just hide them in the beginning. However, with this solution, there will be a limit to the number of categories that the user can add, which is ok but not optimal. It also will cause me to create a lot of potentially unused activities which seems very inefficient.&lt;/p&gt;
+
+&lt;p&gt;I have come across posts like &lt;a href=&quot;http://stackoverflow.com/questions/22068518/creating-table-dynamically-on-button-click-in-android&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;http://stackoverflow.com/questions/7426045/is-it-possible-to-create-sqlite-table-at-run-time-based-on-number-of-elements-in&quot;&gt;this&lt;/a&gt;, but it doesn&#39;t address my problem.
+If I&#39;m not clear with articulating my problem, it is like the music Spotify software, where I don&#39;t know how to allow the user to add new playlists dynamically.
+Thank you so much for your help in advance!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: with juergen&#39;s suggestion, I can redesign my database to just have one table. So I no longer need to create tables dynamically, but I still have to find a way to create multiple instances of an activity dynamically. &lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336235</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">NTLMaps not working for shared Wifi to Burpsuite after OS X update</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="osx" />
+            <category scheme="http://stackoverflow.com/tags" term="proxy" />
+            <category scheme="http://stackoverflow.com/tags" term="ntlm" />
+            <category scheme="http://stackoverflow.com/tags" term="burp" />
+        <author>
+            <name>Cynic</name>
+            <uri>http://stackoverflow.com/users/3838981</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336235/ntlmaps-not-working-for-shared-wifi-to-burpsuite-after-os-x-update" />
+        <published>2016-05-20T00:42:56Z</published>
+        <updated>2016-05-20T00:42:56Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;So I used to use this version of &lt;a href=&quot;https://sourceforge.net/projects/ntlmaps/&quot; rel=&quot;nofollow&quot;&gt;NTLMaps&lt;/a&gt; to proxy shared Wifi from my Mac and redirect it to Burpsuite for Native App testing outside of an emulator. You could achieve this by setting the server.cfg to &#39;PARENT_PROXY:127.0.0.1&#39;, &#39;PARENT_PROXY_PORT:8080&#39; &amp;amp; &#39;ALLOW_EXTERNAL_CLIENTS:1&#39;. &lt;/p&gt;
+
+&lt;p&gt;But after updating to OS X, 10.11.5 the program is running but the proxied internet traffic isn&#39;t getting to burpsuite. &lt;/p&gt;
+
+&lt;p&gt;Part 1:
+So I updated to &lt;a href=&quot;https://github.com/heupel/ntlmaps&quot; rel=&quot;nofollow&quot;&gt;this version&lt;/a&gt;, but that&#39;s giving me this error, &quot;ERROR: NT DOMAIN must be set.&quot; I can find NT Domain in the server config, but I have no idea where to find this info on a mac (or would I need burpsuite?). Not a network guy could use any help finding this info.&lt;/p&gt;
+
+&lt;p&gt;Part 2:
+Even if I get that working, that it may not fix the issue on OS X (If anyone is on OS X10.11.5 and this still works please let me know, worked couple days ago but maybe it has to do with custom settings before upgrading). Does anyone have a better way of proxying native app traffic off a real device through burp or charles (not using an emulator or by changing the app)? Or does anyone have this type of setup working on the OS X 10.11.5? I&#39;d just roll back but my office can be pretty strict on keeping up to date so this wouldn&#39;t work as a long term solution.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336217</id>
+        <re:rank scheme="http://stackoverflow.com">-1</re:rank>
+        <title type="text">AsyncLayoutInflator info?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="android-layout" />
+        <author>
+            <name>Patrick</name>
+            <uri>http://stackoverflow.com/users/751581</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336217/asynclayoutinflator-info" />
+        <published>2016-05-20T00:41:02Z</published>
+        <updated>2016-05-20T00:41:02Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;At the fireside chat at IO 2016 there was mention of an AsyncTaskLoader in the support library.  Where can this be found and is there any documentation available? Is there any same code demonstrating usage?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336168</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">ADB.exe is not executing from c#</title>
+            <category scheme="http://stackoverflow.com/tags" term="c#" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term=".net" />
+            <category scheme="http://stackoverflow.com/tags" term="process" />
+            <category scheme="http://stackoverflow.com/tags" term="adb" />
+        <author>
+            <name>user1648142</name>
+            <uri>http://stackoverflow.com/users/1648142</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336168/adb-exe-is-not-executing-from-c-sharp" />
+        <published>2016-05-20T00:32:51Z</published>
+        <updated>2016-05-20T00:59:49Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I tried executing an adb command from c# windows form as given below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Process.Start(&quot;CMD.exe&quot;, &quot;adb install &quot; + textBox1.Text + &quot; &amp;amp; adb kill-server&quot;); 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also tried the below code which also not working.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var process = Process.Start(&quot;CMD.exe&quot;, &quot;/c adb install &quot; + textBox1.Text);
+process.WaitForExit();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It shows no error but the apk is not installed. If i try the same command from command prompt it executes and installed successfully.&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336161</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Zooming text alone inside a android textview</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="android-animation" />
+            <category scheme="http://stackoverflow.com/tags" term="android-textview" />
+        <author>
+            <name>Ganga</name>
+            <uri>http://stackoverflow.com/users/2706092</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336161/zooming-text-alone-inside-a-android-textview" />
+        <published>2016-05-20T00:32:27Z</published>
+        <updated>2016-05-20T00:32:27Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I have a text view with numbers displayed on it. It shows a bill amount value. I would like to have a zoom animation on it, on click. The text view is round shaped and presently zooming zooms the entire circular text view. I used an anim file that uses scaleX and scaleY to zoom. But I just want to zoom the text alone when a user clicks on it. How to zoom text alone inside a textview in android and not the entire textview?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336160</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Putting data from a jsonobject into a gridview</title>
+            <category scheme="http://stackoverflow.com/tags" term="java" />
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="json" />
+            <category scheme="http://stackoverflow.com/tags" term="gridview" />
+        <author>
+            <name>Kripzy</name>
+            <uri>http://stackoverflow.com/users/5993325</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336160/putting-data-from-a-jsonobject-into-a-gridview" />
+        <published>2016-05-20T00:31:57Z</published>
+        <updated>2016-05-20T00:39:11Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;i just wondering how to put values i retrieve from a json file, into a gridview, and then this gridview is in my custom adapter. at all times there will only be 6 id&#39;s which correspond to an image and 6 names in the gridview. &lt;/p&gt;
+
+&lt;p&gt;Here is my code;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private TextView tvData;
+private ImageView imgtest;
+String ChampionName;
+String ChampionNameInLowerCase;
+String item2;
+String item3;
+private ListView Championinfo;
+
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    ListView listview = (ListView) findViewById(R.id.listView);
+    imgtest = (ImageView) findViewById(R.id.imageView);
+
+    // http://api.champion.gg/champion/Ekko/
+    new JSONTask().execute(&quot;http://api.champion.gg/champion/ekko/&quot;);
+
+    Championinfo = (ListView)findViewById(R.id.listView);
+}
+
+public class JSONTask extends AsyncTask&amp;lt;String, String, List&amp;lt;Layoutmodel&amp;gt;&amp;gt; {
+    @Override
+    protected List&amp;lt;Layoutmodel&amp;gt; doInBackground(String... params) {
+        HttpURLConnection connection = null;
+        BufferedReader reader = null;
+
+
+        try {
+            URL url = new URL(params[0]);
+
+            connection = (HttpURLConnection) url.openConnection();
+            connection.connect();
+
+            InputStream stream = connection.getInputStream();
+
+            reader = new BufferedReader(new InputStreamReader(stream));
+
+            StringBuffer buffer = new StringBuffer();
+
+            String line = &quot;&quot;;
+
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line);
+            }
+
+            String finalJson = buffer.toString();
+
+            JSONArray jsonarray = new JSONArray(finalJson);
+            List&amp;lt;Layoutmodel&amp;gt; LayoutModelList = new ArrayList&amp;lt;&amp;gt;();
+
+            for (int i = 0; i &amp;lt; jsonarray.length(); i++) {
+
+
+                JSONObject finalObject = jsonarray.getJSONObject(i);
+
+                Layoutmodel layoutmodel = new Layoutmodel();
+                layoutmodel.setChampionName2(finalObject.getString(&quot;key&quot;));
+                layoutmodel.setRole(finalObject.getString(&quot;role&quot;));
+
+                ChampionName = finalObject.getString(&quot;key&quot;);
+                String role = finalObject.getString(&quot;role&quot;);
+                String items = finalObject.getString(&quot;items&quot;);
+
+                JSONObject ItemArray = new JSONObject(items);
+                item2 = ItemArray.getString(&quot;mostGames&quot;);
+                JSONObject ItemArray2 = new JSONObject(item2);
+                item3 = ItemArray2.getString(&quot;items&quot;);
+
+                JSONArray jsonarray2 = new JSONArray(item3);
+                StringBuffer TestBuffer = new StringBuffer();
+
+
+                List&amp;lt;Layoutmodel.itemname&amp;gt; itemlist = new ArrayList&amp;lt;&amp;gt;();
+                for (int j = 0; j &amp;lt; jsonarray2.length(); j++) {
+                    JSONObject finalObject2 = jsonarray2.getJSONObject(j);
+
+                    Integer ID = finalObject2.getInt(&quot;id&quot;);
+                    String ItemName = finalObject2.getString(&quot;name&quot;);
+                    TestBuffer.append(ID + &quot;-&quot; + ItemName + &quot;\n&quot;);
+
+                    Layoutmodel.itemname ItemNames = new Layoutmodel.itemname();
+                    ItemNames.setName(ItemName);
+                }
+                layoutmodel.setItemnames(itemlist);
+                layoutmodel.setRole(role);
+                layoutmodel.setChampionName2(ChampionName);
+                LayoutModelList.add(layoutmodel);
+
+                return LayoutModelList;
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(List&amp;lt;Layoutmodel&amp;gt; result) {
+        super.onPostExecute(result);
+        LayoutAdapter adapter2 = new LayoutAdapter(getApplicationContext(), R.layout.rows, result);
+        Championinfo.setAdapter(adapter2);
+
+
+
+
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;public class LayoutAdapter extends ArrayAdapter {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    private List&amp;lt;Layoutmodel&amp;gt; LayoutModelList;
+    private int resource;
+    private LayoutInflater inflater;
+
+    public LayoutAdapter(Context context2, int resource, List&amp;lt;Layoutmodel&amp;gt; objects) {
+        super(context2, resource, objects);
+        LayoutModelList = objects;
+        this.resource = resource;
+        inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+    }
+
+    @Override
+    public View getView(int position2, View convertView2, ViewGroup parent2) {
+        if (convertView2 == null) {
+            convertView2 = inflater.inflate(R.layout.rows, null);
+        }
+        ImageView imageofchamp;
+        TextView nameofchamp;
+        TextView position;
+        GridView champitems;
+
+        // imageofchamp = (ImageView) convertView2.findViewById(R.id.imageView);
+        nameofchamp = (TextView) convertView2.findViewById(R.id.textView);
+        position = (TextView) convertView2.findViewById(R.id.smalltxt);
+       // champitems = (GridView) convertView2.findViewById(R.id.gridView);
+
+        nameofchamp.setText(LayoutModelList.get(position2).getChampionName2());
+        position.setText(LayoutModelList.get(position2).getRole());
+
+
+        return convertView2;
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;Here is what the code returns at the moment;
+&lt;a href=&quot;http://i.stack.imgur.com/GsQ0C.png&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://i.stack.imgur.com/GsQ0C.png&quot; alt=&quot;enter image description here&quot;&gt;&lt;/a&gt;
+and here is the layout of the image above
+&lt;a href=&quot;http://i.stack.imgur.com/uCZ8L.png&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://i.stack.imgur.com/uCZ8L.png&quot; alt=&quot;enter image description here&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;and here is the code where i actually get the id and name of items from the json, &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; for (int j = 0; j &amp;lt; jsonarray2.length(); j++) {
+                JSONObject finalObject2 = jsonarray2.getJSONObject(j);
+
+                Integer ID = finalObject2.getInt(&quot;id&quot;);
+                String ItemName = finalObject2.getString(&quot;name&quot;);
+                TestBuffer.append(ID + &quot;-&quot; + ItemName + &quot;\n&quot;);
+
+                Layoutmodel.itemname ItemNames = new Layoutmodel.itemname();
+                ItemNames.setName(ItemName);
+            }
+&lt;/code&gt;&lt;/pre&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336126</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">How to add , position &amp; resize AnimationDrawable object over a view in Android?</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="animation" />
+            <category scheme="http://stackoverflow.com/tags" term="overlay" />
+            <category scheme="http://stackoverflow.com/tags" term="drawable" />
+        <author>
+            <name>Ahmed M.S</name>
+            <uri>http://stackoverflow.com/users/6358665</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336126/how-to-add-position-resize-animationdrawable-object-over-a-view-in-android" />
+        <published>2016-05-20T00:26:54Z</published>
+        <updated>2016-05-20T00:26:54Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I need someone to show me with example how to add , position &amp;amp; resize an AnimationDrawable object over a View in android . I&#39;ve spent one week googling this topic without any useful solution .&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://i.stack.imgur.com/O7biW.jpg&quot; rel=&quot;nofollow&quot;&gt;Example Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My XML file looks like this :&lt;/p&gt;
+
+
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;LinearLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:id=&quot;@+id/topLayout&quot;
+android:orientation=&quot;vertical&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:keepScreenOn=&quot;true&quot;&amp;gt;
+
+
+    &amp;lt;com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview
+  android:id=&quot;@+id/preview&quot;
+  android:layout_width=&quot;match_parent&quot;
+  android:layout_height=&quot;match_parent&quot;&amp;gt;
+
+
+    &amp;lt;com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay
+    android:id=&quot;@+id/faceOverlay&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&amp;gt;
+
+
+            &amp;lt;View
+                android:id=&quot;@+id/FireEx&quot;
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;match_parent&quot;
+                android:background=&quot;@color/ripple_material_dark&quot;
+                /&amp;gt;
+
+
+
+        &amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&#39;m trying to add/resize my  animation object (type of AnimationDrawable) over the view layout (@+id/FireEx) , it doesn&#39;t show anything .&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve tried to define an ImageView field and set my drawable animation as image background , i.e,Image.setBackground(Fire.returnAnimate()) and it worked , but still I&#39;m unable to resize nor position the animation anywhere on the display .&lt;/p&gt;
+
+&lt;p&gt;I would really appreciate your help here ... Thanks in advance ..&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336103</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Enable debug logging firebase analytics</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="firebase" />
+            <category scheme="http://stackoverflow.com/tags" term="firebase-analytics" />
+        <author>
+            <name>ez4nick</name>
+            <uri>http://stackoverflow.com/users/1489990</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336103/enable-debug-logging-firebase-analytics" />
+        <published>2016-05-20T00:23:11Z</published>
+        <updated>2016-05-20T00:23:11Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I&#39;m trying to enable debug logging for Firebase analytics in Android Studio. I have tried following the instructions found here and still don&#39;t see the logs I expect: &lt;a href=&quot;https://firebase.google.com/docs/analytics/android/events#log_events&quot; rel=&quot;nofollow&quot;&gt;https://firebase.google.com/docs/analytics/android/events#log_events&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://i.stack.imgur.com/torMt.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://i.stack.imgur.com/torMt.jpg&quot; alt=&quot;enter image description here&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;When I run the commands described in the link (and shown above) in the terminal within Android Studio this is the output I see:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--------- beginning of system
+--------- beginning of crash
+--------- beginning of main
+05-19 20:14:12.794 I/FA      ( 3083): App measurement is starting up, version: 9080
+05-19 20:14:12.794 I/FA      ( 3083): To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and this is what is shown in the Android Monitor tab in logcat:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;05-19 20:14:12.794 3083-3083/com.nick.app I/FA: App measurement is starting up, version: 9080
+05-19 20:14:12.794 3083-3083/com.nick.app I/FA: To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What I expect to see is an indication the various &quot;events&quot; I have logged are logged correctly. I have seen them in the firebase developer console which leads me to believe I have implemented them properly, I would just like a quicker way to know for testing purposes. &lt;/p&gt;
+
+&lt;p&gt;What steps need to be taken to properly view the firebase analytics debug logs?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/37336069</id>
+        <re:rank scheme="http://stackoverflow.com">0</re:rank>
+        <title type="text">Change background onClick ClickableSpan Android</title>
+            <category scheme="http://stackoverflow.com/tags" term="android" />
+            <category scheme="http://stackoverflow.com/tags" term="textview" />
+            <category scheme="http://stackoverflow.com/tags" term="clickablespan" />
+        <author>
+            <name>Bob</name>
+            <uri>http://stackoverflow.com/users/4246723</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/37336069/change-background-onclick-clickablespan-android" />
+        <published>2016-05-20T00:16:44Z</published>
+        <updated>2016-05-20T00:16:44Z</updated>
+        <summary type="html">
+            
+
+            &lt;p&gt;I have a &lt;code&gt;TextView&lt;/code&gt; with a few &lt;code&gt;ClickableSpan&lt;/code&gt;s. I want to change the background of the ClickableSpan onClick. I know that there is &lt;code&gt;updateDrawState(TextPaint)&lt;/code&gt; which is run when the &lt;code&gt;ClickableSpan&lt;/code&gt; is initialized. I&#39;m currently trying:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public void onClick(View view) {
+    TextPaint tp = new TextPaint();
+    tp.bgColor = Color.parseColor(&quot;#999999&quot;);
+    updateDrawState(tp);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But that&#39;s updating the background of the view although onClick() is definitely running. Anyone know how to do this?&lt;/p&gt;
+
+        </summary>
+    </entry>
+</feed>
