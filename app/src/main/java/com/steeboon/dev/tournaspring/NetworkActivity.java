@@ -23,8 +23,10 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -33,9 +35,14 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.steeboon.dev.tournaspring.R;
 import com.steeboon.dev.tournaspring.StackOverflowXmlParser.Entry;
+import com.steeboon.dev.tournaspring.ui.QuestionDisplay;
 import com.steeboon.dev.tournaspring.util.Question;
+import com.steeboon.dev.tournaspring.util.QuestionList;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -52,18 +59,18 @@ import java.util.List;
 
 /**
  * Main Activity for the sample application.
- *
+ * <p/>
  * This activity does the following:
- *
+ * <p/>
  * o Presents a WebView screen to users. This WebView has a list of HTML links to the latest
- *   questions tagged 'android' on stackoverflow.com.
- *
+ * questions tagged 'android' on stackoverflow.com.
+ * <p/>
  * o Parses the StackOverflow XML feed using XMLPullParser.
- *
+ * <p/>
  * o Uses AsyncTask to download and process the XML feed.
- *
+ * <p/>
  * o Monitors preferences and the device's network connection to determine whether
- *   to refresh the WebView content.
+ * to refresh the WebView content.
  */
 public class NetworkActivity extends Activity {
     public static final String WIFI = "Wi-Fi";
@@ -78,24 +85,30 @@ public class NetworkActivity extends Activity {
     // Whether the display should be refreshed.
     public static boolean refreshDisplay = true;
 
-    private static List<Question> allQuestions ;
-
+    QuestionList allQuestions = new QuestionList();
     // The user's current network preference setting.
     public static String sPref = null;
 
     // The BroadcastReceiver that tracks network connectivity changes.
     private NetworkReceiver receiver = new NetworkReceiver();
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // initialize the list of questions to an arraylist
-        allQuestions = new ArrayList<>();
+
         // Register BroadcastReceiver to track connection changes.
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         receiver = new NetworkReceiver();
         this.registerReceiver(receiver, filter);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     // Refreshes the display if the network connection and the
@@ -103,8 +116,11 @@ public class NetworkActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
 
-        Log.i("start","we are in the start");
+        Log.i("start", "we are in the start");
         // Gets the user's network preference settings
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -122,6 +138,19 @@ public class NetworkActivity extends Activity {
         if (refreshDisplay) {
             loadPage();
         }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Network Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.steeboon.dev.tournaspring/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
     }
 
     @Override
@@ -140,8 +169,8 @@ public class NetworkActivity extends Activity {
 
         NetworkInfo activeInfo = connMgr.getActiveNetworkInfo();
         //if (activeInfo != null && activeInfo.isConnected()) {
-            wifiConnected = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
-            mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+        wifiConnected = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
+        mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
         /* else {
             wifiConnected = false;
             mobileConnected = false;
@@ -194,6 +223,26 @@ public class NetworkActivity extends Activity {
         }
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Network Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.steeboon.dev.tournaspring/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
+
     // Implementation of AsyncTask used to download XML feed from stackoverflow.com.
     private class DownloadXmlTask extends AsyncTask<String, Void, String> {
 
@@ -216,8 +265,21 @@ public class NetworkActivity extends Activity {
             // Displays the HTML string in the UI via a WebView
             WebView myWebView = (WebView) findViewById(R.id.webview);
             myWebView.loadData(result, "text/html", null);
-            Log.i("gotAdata","this is the data I got");
+            Log.i("gotAdata", "this is the data I got");
             Log.i("questions", allQuestions.toString());
+
+
+            // Redirect the view to the activity that display questions
+            Intent intent = new Intent(NetworkActivity.this, QuestionDisplay.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            // create a bundle to pass all the questions
+            Bundle b = new Bundle();
+            b.putParcelable("questionList",allQuestions);
+            intent.putExtras(b);
+            startActivity(intent);
+
+           // intent.putParcelableArrayListExtra("question_grout", ArrayList<Question > allQuestions);
         }
     }
 
@@ -236,12 +298,12 @@ public class NetworkActivity extends Activity {
 
         StringBuilder htmlString = new StringBuilder();
         htmlString.append("<h3>" + getResources().getString(R.string.page_title) + "</h3>");
-        htmlString.append("<h4>" + getResources().getString(R.string.competition_details) +"</h4>");
-        htmlString.append("Competition Name :" + getResources().getString(R.string.competition_name ));
+        htmlString.append("<h4>" + getResources().getString(R.string.competition_details) + "</h4>");
+        htmlString.append("Competition Name :" + getResources().getString(R.string.competition_name));
         htmlString.append("<br>");
-        htmlString.append( getResources().getString(R.string.competition_admin_field ) + " " + getResources().getString(R.string.competition_admin) );
+        htmlString.append(getResources().getString(R.string.competition_admin_field) + " " + getResources().getString(R.string.competition_admin));
         htmlString.append("<br>");
-        htmlString.append( getResources().getString(R.string.number_of_competitors_field ) + " 12" );
+        htmlString.append(getResources().getString(R.string.number_of_competitors_field) + " 12");
         htmlString.append("<br>");
 
 
@@ -263,7 +325,7 @@ public class NetworkActivity extends Activity {
         for (Entry entry : entries) {
 
             // Add all questions to the list of questions
-            Question question = new Question(entry.question,entry.answer_one,entry.answer_two,entry.answer_three);
+            Question question = new Question(entry.question, entry.answer_one, entry.answer_two, entry.answer_three);
             /*htmlString.append("<p><b>");
             htmlString.append(entry.question);
             htmlString.append("'</b>"  + "</p>");
@@ -304,12 +366,10 @@ public class NetworkActivity extends Activity {
     }
 
     /**
-     *
      * This BroadcastReceiver intercepts the android.net.ConnectivityManager.CONNECTIVITY_ACTION,
      * which indicates a connection change. It checks whether the type is TYPE_WIFI.
      * If it is, it checks whether Wi-Fi is connected and sets the wifiConnected flag in the
      * main activity accordingly.
-     *
      */
     public class NetworkReceiver extends BroadcastReceiver {
 

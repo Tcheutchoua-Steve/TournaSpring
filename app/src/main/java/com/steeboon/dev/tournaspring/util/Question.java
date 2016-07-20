@@ -3,7 +3,7 @@ package com.steeboon.dev.tournaspring.util;
 /**
  * Created by tcheutchoua on 7/19/16.
  */
-public class Question {
+public class Question  {
 
     // Variables for the question and it's corresponding answers respectively
     private String question_asked ;
