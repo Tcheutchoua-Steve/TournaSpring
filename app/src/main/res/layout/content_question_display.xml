@@ -14,9 +14,14 @@
 
 
     <RadioGroup
-        android:id="@+id/radioQuestion"
+        android:id="@+id/radioGroupQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/radioQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/radioAnswer1"
