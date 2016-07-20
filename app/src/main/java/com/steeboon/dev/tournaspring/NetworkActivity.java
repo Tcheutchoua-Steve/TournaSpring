@@ -26,19 +26,21 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.steeboon.dev.tournaspring.R;
 import com.steeboon.dev.tournaspring.StackOverflowXmlParser.Entry;
 import com.steeboon.dev.tournaspring.ui.QuestionDisplay;
 import com.steeboon.dev.tournaspring.util.Question;
@@ -48,11 +50,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -72,7 +71,7 @@ import java.util.List;
  * o Monitors preferences and the device's network connection to determine whether
  * to refresh the WebView content.
  */
-public class NetworkActivity extends Activity {
+public class NetworkActivity extends AppCompatActivity {
     public static final String WIFI = "Wi-Fi";
     public static final String ANY = "Any";
     private static final String URL =
@@ -97,18 +96,28 @@ public class NetworkActivity extends Activity {
      */
     private GoogleApiClient client;
 
+    private TextView competition_name ;
+    private TextView competition_admin ;
+    private TextView number_of_competitors;
+    private TextView total_question_number ;
+    private Button start_competition;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.competition_detail);
+
+        // matching Textviews to their corresponding Layout views
+
 
 
         // Register BroadcastReceiver to track connection changes.
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         receiver = new NetworkReceiver();
-        this.registerReceiver(receiver, filter);
+        //this.registerReceiver(receiver, filter);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             API).build();
     }
 
     // Refreshes the display if the network connection and the
@@ -252,6 +261,7 @@ public class NetworkActivity extends Activity {
                 Log.e("url[0] is ", " This is url[0]  " + urls[0]);
                 return loadXmlFromNetwork(urls[0]);
 
+
             } catch (IOException e) {
                 return getResources().getString(R.string.connection_error);
             } catch (XmlPullParserException e) {
@@ -261,23 +271,43 @@ public class NetworkActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            setContentView(R.layout.main);
-            // Displays the HTML string in the UI via a WebView
-            WebView myWebView = (WebView) findViewById(R.id.webview);
-            myWebView.loadData(result, "text/html", null);
+            setContentView(R.layout.competition_detail);
+
+            // matching Textviews to their corresponding Layout views
+            competition_name = (TextView)findViewById(R.id.competionName);
+            competition_admin = (TextView)findViewById(R.id.competionAdmin);
+            number_of_competitors = (TextView)findViewById(R.id.numberOfCompetitors);
+            total_question_number = (TextView)findViewById(R.id.totoalQuestionNumber);
+            start_competition = (Button)findViewById(R.id.startCompetition);
+
+            competition_name.setText("Java Keep Alive");
+            competition_admin.setText("Tcheutchoua Steve");
+            number_of_competitors.setText("16");
+            // set the total number of questions after the xml file has been parsed
+            total_question_number.setText(String.valueOf(allQuestions.size()));
             Log.i("gotAdata", "this is the data I got");
             Log.i("questions", allQuestions.toString());
 
+            //WebView myWebView = (WebView) findViewById(R.id.webview);
+
 
             // Redirect the view to the activity that display questions
-            Intent intent = new Intent(NetworkActivity.this, QuestionDisplay.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            start_competition.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(NetworkActivity.this, QuestionDisplay.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    // create a bundle to pass all the questions
+                    Bundle b = new Bundle();
+                    b.putParcelable("questionList",allQuestions);
+                    intent.putExtras(b);
+                    startActivity(intent);
+                }
+            });
 
-            // create a bundle to pass all the questions
-            Bundle b = new Bundle();
-            b.putParcelable("questionList",allQuestions);
-            intent.putExtras(b);
-            startActivity(intent);
+            // Displays the HTML string in the UI via a WebView
+
+            //myWebView.loadData(result, "text/html", null);
 
            // intent.putParcelableArrayListExtra("question_grout", ArrayList<Question > allQuestions);
         }
@@ -295,17 +325,6 @@ public class NetworkActivity extends Activity {
         // Checks whether the user set the preference to include summary text
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean pref = sharedPrefs.getBoolean("summaryPref", false);
-
-        StringBuilder htmlString = new StringBuilder();
-        htmlString.append("<h3>" + getResources().getString(R.string.page_title) + "</h3>");
-        htmlString.append("<h4>" + getResources().getString(R.string.competition_details) + "</h4>");
-        htmlString.append("Competition Name :" + getResources().getString(R.string.competition_name));
-        htmlString.append("<br>");
-        htmlString.append(getResources().getString(R.string.competition_admin_field) + " " + getResources().getString(R.string.competition_admin));
-        htmlString.append("<br>");
-        htmlString.append(getResources().getString(R.string.number_of_competitors_field) + " 12");
-        htmlString.append("<br>");
-
 
         try {
             stream = downloadUrl(urlString);
@@ -326,18 +345,6 @@ public class NetworkActivity extends Activity {
 
             // Add all questions to the list of questions
             Question question = new Question(entry.question, entry.answer_one, entry.answer_two, entry.answer_three);
-            /*htmlString.append("<p><b>");
-            htmlString.append(entry.question);
-            htmlString.append("'</b>"  + "</p>");
-            // If the user set the preference to include summary text,
-            // adds it to the display.
-            htmlString.append("<p>");
-            htmlString.append(entry.answer_one);
-            htmlString.append("<br>");
-            htmlString.append(entry.answer_two);
-            htmlString.append("<br>");
-            htmlString.append(entry.answer_three);
-            htmlString.append("</p>"); */
 
             /*if (pref) {
                 htmlString.append(entry.summary);
@@ -346,7 +353,8 @@ public class NetworkActivity extends Activity {
             // Add the created question to the list of questions
             allQuestions.add(question);
         }
-        return htmlString.toString();
+
+        return "Task completed successfully";
     }
 
     // Given a string representation of a URL, sets up a connection and gets
