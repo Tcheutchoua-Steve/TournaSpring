@@ -115,18 +115,22 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:paddingTop="18dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
         <Button
             android:id="@+id/startCompetition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start Competiton"
+            android:gravity="center"
+            android:layout_gravity="center"
             />
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

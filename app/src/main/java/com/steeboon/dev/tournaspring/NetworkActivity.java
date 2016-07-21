@@ -14,7 +14,6 @@
 
 package com.steeboon.dev.tournaspring;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -53,6 +52,7 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -87,6 +87,12 @@ public class NetworkActivity extends AppCompatActivity {
     QuestionList allQuestions = new QuestionList();
     // The user's current network preference setting.
     public static String sPref = null;
+
+    // Determines if a url has been parsed or not
+    private static boolean parse_status = false ;
+
+    // Determine the url that has previously been parsed
+    private static String previous_url ;
 
     // The BroadcastReceiver that tracks network connectivity changes.
     private NetworkReceiver receiver = new NetworkReceiver();
@@ -195,6 +201,7 @@ public class NetworkActivity extends AppCompatActivity {
         //          || ((sPref.equals(WIFI)) && (wifiConnected))) {
         // AsyncTask subclass
         Log.e("url[0]  ", " we are passing the URL  " + URL);
+
         new DownloadXmlTask().execute(URL);
     }
 
@@ -341,6 +348,11 @@ public class NetworkActivity extends AppCompatActivity {
         // This section processes the entries list to combine each entry with HTML markup.
         // Each entry is displayed in the UI as a link that optionally includes
         // a text summary.
+
+        // Remove everything that is found in the list before adding new items from the xml
+        // Some improvements will have to be done here in order to increase performance and reduce
+        // Object creation overhead by the JVM
+        allQuestions.clear();
         for (Entry entry : entries) {
 
             // Add all questions to the list of questions
@@ -350,8 +362,10 @@ public class NetworkActivity extends AppCompatActivity {
                 htmlString.append(entry.summary);
             }*/
 
-            // Add the created question to the list of questions
-            allQuestions.add(question);
+            if (!allQuestions.contains(question)) {
+                // Add the created question to the list of questions
+                allQuestions.add(question);
+            }
         }
 
         return "Task completed successfully";

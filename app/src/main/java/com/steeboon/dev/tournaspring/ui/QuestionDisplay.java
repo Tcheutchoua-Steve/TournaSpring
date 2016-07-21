@@ -22,7 +22,7 @@ public class QuestionDisplay extends AppCompatActivity {
     private RadioButton radio_answer1;
     private RadioButton radio_answer2;
     private RadioButton radio_answer3;
-    private RadioButton radio_answer4;
+   // private RadioButton radio_answer4;
 
     private QuestionList  allquestions ;
     private int number_of_questions;
@@ -39,7 +39,7 @@ public class QuestionDisplay extends AppCompatActivity {
         radio_answer1 = (RadioButton)findViewById(R.id.radioAnswer1);
         radio_answer2 = (RadioButton)findViewById(R.id.radioAnswer2);
         radio_answer3 = (RadioButton)findViewById(R.id.radioAnswer3);
-        radio_answer4 = (RadioButton)findViewById(R.id.radioAnswer4);
+        //radio_answer4 = (RadioButton)findViewById(R.id.radioAnswer4);
 
 
         Bundle  b = getIntent().getExtras(); // Get the intent's extras
@@ -61,14 +61,14 @@ public class QuestionDisplay extends AppCompatActivity {
         
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
 }
