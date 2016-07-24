@@ -46,13 +46,6 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Get the currect question number from the previous activity
-        Intent in = getIntent();
-        Bundle bundle = in.getExtras();
-
-        if(bundle.get("lastQuestion") != null) {
-            current_question_number = (int) bundle.get("lastQuestion");
-        }
         radio_group_question = (RadioGroup)findViewById(R.id.radioGroupQuestion);
         radio_question = (TextView)findViewById(R.id.radioQuestion);
         radio_answer1 = (RadioButton)findViewById(R.id.radioAnswer1);
@@ -65,38 +58,20 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         button_prev = (Button)findViewById(R.id.prevQuestion);
         button_next = (Button)findViewById(R.id.nextQuestion);
 
-        //Set Listeners to the buttons. Their logic is found in the
-        // onClick method thanks to the onClickinterface we are implementing
 
 
         question_bundle = getIntent().getExtras(); // Get the intent's extras
 
+        // Get allParsed questions from the previous activity
         allquestions = question_bundle.getParcelable("questionList");
 
-        Log.i("arrow_crr_question",String.valueOf(current_question_number));
-        Log.i("allquestions",allquestions.toString());
-
-
-        allquestions = question_bundle.getParcelable("questionList");
-
-        if(this.current_question_number <= 0){
-            button_prev.setEnabled(false);
-        }
-        else
-        if (this.current_question_number >= allquestions.size() - 1){
-            button_next.setEnabled(false);
-        }
-
+        //Set Listeners to the buttons. Their logic is found in the
+        // onClick method thanks to the onClickinterface we are implementing
         button_next.setOnClickListener(this);
         button_prev.setOnClickListener(this);
 
 
-            Log.i("num_questions",String.valueOf(allquestions.size()));
-        Log.i("allquestions",allquestions.toString());
-        radio_question.setText(allquestions.get(current_question_number).getQuestion_asked());
-        radio_answer1.setText(allquestions.get(current_question_number).getAnswer1());
-        radio_answer2.setText(allquestions.get(current_question_number).getAnswer2());
-        radio_answer3.setText(allquestions.get(current_question_number).getAnswer3());
+        displayQuestions(current_question_number);
 
 
       /*  Floatin (FloatingActionButton) findViewById(R.id.fab);
@@ -113,34 +88,35 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v.equals(button_next)){
-            Intent intent = new Intent(this, this.getClass());
-            intent.putExtras(question_bundle);
-            intent.putExtra("lastQuestion",current_question_number +1);
-            Log.i("arrow","Next button has been clicked");
-            startActivity(intent);
-
+            displayQuestions(current_question_number + 1);
         }
         else if (v.equals(button_prev)){
-            Intent intent = new Intent(this, this.getClass());
-            intent.putExtras(question_bundle);
-            intent.putExtra("lastQuestion",current_question_number -1);
-            Log.i("arror","Prev button has been clicked");
-            startActivity(intent);
+            displayQuestions(current_question_number - 1);
         }
 
     }
 
-    public int verifyQuestionNumber(int number, int size ){
+    public void displayQuestions(int n){
 
-        // If someone clicks previous while in the first question
-        if(number < 0 )
-            return 1 ;
-        // if someone clicks next after we are on the last question
-        else if (number > size )
-            return 1 ;
-        else
-            return number ;
+        this.current_question_number = n;
 
+        // disable previous button if we are on the first question.
+        if(current_question_number <= 0){
+            button_prev.setEnabled(false);
+        }
+        else {
+            button_prev.setEnabled(true);
+        }
 
+        // Disable next button if we are on the last question
+        if (current_question_number >= allquestions.size() - 1){
+            button_next.setEnabled(false);
+        }
+        else {button_next.setEnabled(true);}
+
+        radio_question.setText(allquestions.get(current_question_number).getQuestion_asked());
+        radio_answer1.setText(allquestions.get(current_question_number).getAnswer1());
+        radio_answer2.setText(allquestions.get(current_question_number).getAnswer2());
+        radio_answer3.setText(allquestions.get(current_question_number).getAnswer3());
     }
 }
