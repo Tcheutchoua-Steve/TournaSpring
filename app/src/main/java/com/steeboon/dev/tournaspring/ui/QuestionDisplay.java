@@ -1,7 +1,9 @@
 package com.steeboon.dev.tournaspring.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +32,8 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     private Button button_next ;
     private Button button_prev ;
 
+    private TextView time_left ;
+
     // The bundle that will help in containing the parceable questions
     private static Bundle  question_bundle ;
     //The current question number that is being answered.
@@ -51,7 +55,8 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         radio_answer1 = (RadioButton)findViewById(R.id.radioAnswer1);
         radio_answer2 = (RadioButton)findViewById(R.id.radioAnswer2);
         radio_answer3 = (RadioButton)findViewById(R.id.radioAnswer3);
-        //radio_answer4 = (RadioButton)findViewById(R.id.radioAnswer4);
+
+        time_left = (TextView)findViewById(R.id.timer);
 
 
 
@@ -71,7 +76,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         button_prev.setOnClickListener(this);
 
 
-        displayQuestions(current_question_number);
+        displayQuestions(0);
 
 
       /*  Floatin (FloatingActionButton) findViewById(R.id.fab);
@@ -98,6 +103,8 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
 
     public void displayQuestions(int n){
 
+        setTimer(40000,1000);
+
         this.current_question_number = n;
 
         // disable previous button if we are on the first question.
@@ -118,5 +125,35 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         radio_answer1.setText(allquestions.get(current_question_number).getAnswer1());
         radio_answer2.setText(allquestions.get(current_question_number).getAnswer2());
         radio_answer3.setText(allquestions.get(current_question_number).getAnswer3());
+    }
+
+    public void setTimer(final long millisInFuture, long CountDownInterval){
+        new CountDownTimer(millisInFuture, CountDownInterval) {
+
+            public void onTick(long millisUntilFinished) {
+                // color of text set to orange when less than 30 seconds
+                if (millisUntilFinished > 10000 && millisUntilFinished < 30000){
+                    time_left.setTextColor(Color.rgb(255, 165, 0));
+                    time_left.setText(Long.toString(millisUntilFinished / 1000));
+                }
+                // color set to red when less than 10 seconds
+                else if (millisUntilFinished <=10000 ){
+                    time_left.setTextColor(Color.rgb(255, 0, 0));
+                    time_left.setText(Long.toString(millisUntilFinished / 1000));
+                }
+                else {
+                    time_left.setText(Long.toString(millisUntilFinished / 1000));
+                }
+
+            }
+
+            public void onFinish() {
+                time_left.setText("done!");
+
+                //move to next question
+                button_next.performClick();
+            }
+
+        }.start();
     }
 }
