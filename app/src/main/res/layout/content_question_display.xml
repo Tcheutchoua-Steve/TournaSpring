@@ -78,19 +78,19 @@
         android:background="?attr/colorControlActivated" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/prevQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="prev"
+            android:text="@string/buttonPrevious"
             android:gravity="center"
             android:layout_alignParentLeft="true" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/nextQuestion"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next"
+            android:text="@string/buttonNext"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
 

@@ -20,4 +20,8 @@
     <string name="xml_error">Error parsing XML.</string>
     <string name="title_activity_question_display">QuestionDisplay</string>
 
+    <!--Strings for views, buttons, others etc -->
+    <string name="buttonPrevious">prev</string>
+    <string name="buttonNext">Next</string>
+
 </resources>
