@@ -43,6 +43,9 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     private QuestionList  allquestions ;
     private int number_of_questions;
 
+    // Create Object to be able to handle timer efficienctly
+    private CountDownTimer timer ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,9 +96,11 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v.equals(button_next)){
+            timer.cancel();
             displayQuestions(current_question_number + 1);
         }
         else if (v.equals(button_prev)){
+            timer.cancel();
             displayQuestions(current_question_number - 1);
         }
 
@@ -128,7 +133,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     }
 
     public void setTimer(final long millisInFuture, long CountDownInterval){
-        new CountDownTimer(millisInFuture, CountDownInterval) {
+        timer =  new  CountDownTimer(millisInFuture, CountDownInterval) {
 
             public void onTick(long millisUntilFinished) {
                 // color of text set to orange when less than 30 seconds
