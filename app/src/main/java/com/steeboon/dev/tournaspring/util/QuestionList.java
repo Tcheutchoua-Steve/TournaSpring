@@ -53,7 +53,7 @@ public class QuestionList extends ArrayList<Question> implements Parcelable {
             quest.setAnswer1(in.readString());
             quest.setAnswer2(in.readString());
             quest.setAnswer3(in.readString());
-            quest.setAnswer4(in.readString());
+            quest.setCorrectAnswer(in.readInt());
             this.add(quest);
         }
     }
@@ -82,7 +82,7 @@ public class QuestionList extends ArrayList<Question> implements Parcelable {
             dest.writeString(quest.getAnswer1());
             dest.writeString(quest.getAnswer2());
             dest.writeString(quest.getAnswer3());
-            dest.writeString(quest.getAnswer4());
+            dest.writeInt(quest.getCorrectAnswer());
 
         }
     }

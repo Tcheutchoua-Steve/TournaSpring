@@ -14,6 +14,7 @@
 
 package com.steeboon.dev.tournaspring;
 
+import android.util.Log;
 import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -86,12 +87,14 @@ public class StackOverflowXmlParser {
         public final String answer_one;
         public final String answer_two;
         public final String answer_three ;
+        public final int correct_answer ;
 
-        private Entry(String question, String answer_two, String answer_one , String answer_three) {
+        private Entry(String question, String answer_two, String answer_one, String answer_three, String correctAnswer, int correct_answer) {
             this.question = question;
             this.answer_two = answer_two;
             this.answer_one = answer_one;
             this.answer_three = answer_three ;
+            this.correct_answer = correct_answer;
         }
     }
 
@@ -104,15 +107,19 @@ public class StackOverflowXmlParser {
         String answer_two = null;
         String answer_one = null;
         String answer_three = null ;
+        String correct_answer = null;
+        int answerID = 0 ;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("question")) {
-                question = readQuestion(parser);
-            }else if (name.equals("answer_one")) {
+            if (name.equals("answer_one")) {
                 answer_one = readAnswer1(parser);
+            }
+            else if (name.equals("question")) {
+                question = readQuestion(parser);
+
             }
             else if (name.equals("answer_two")) {
                 answer_two = readAnswer2(parser);
@@ -120,11 +127,23 @@ public class StackOverflowXmlParser {
             }else if (name.equals("answer_three")) {
                 answer_three = readAnswer3(parser);
             }
+            else if (name.equals("answer")) {
+                correct_answer = readCorrectAnswer(parser);
+            }
             else {
                 skip(parser);
             }
+
         }
-        return new Entry(question , answer_one , answer_two , answer_three);
+        if (correct_answer.equals(answer_one)) answerID = 1 ;
+        else if (correct_answer.equals(answer_two)) answerID = 2 ;
+        else if (correct_answer.equals(answer_three)) answerID = 3 ;
+        Log.i("compariq", " " + answerID);
+        Log.i("compari1", " " + answer_one);
+        Log.i("compari2", " " + answer_two);
+        Log.i("comparia3", " " + answer_three);
+
+        return new Entry(question , answer_two , answer_one , answer_three, correct_answer , answerID);
     }
 
     // Processes question tags in the feed.
@@ -137,16 +156,6 @@ public class StackOverflowXmlParser {
 
     // Processes answer_one tags in the feed.
     private String readAnswer1(XmlPullParser parser) throws IOException, XmlPullParserException {
-        /*String answer_one = "";
-        parser.require(XmlPullParser.START_TAG, ns, "answer_one");
-        String tag = parser.getName();
-        String relType = parser.getAttributeValue(null, "rel");
-        if (tag.equals("answer_one")) {
-            if (relType.equals("alternate")) {
-                answer_one = parser.getAttributeValue(null, "href");
-                parser.nextTag();
-            }
-        }*/
         parser.require(XmlPullParser.START_TAG, ns, "answer_one");
         String answer_one = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "answer_one");
@@ -167,6 +176,14 @@ public class StackOverflowXmlParser {
         String answer_three = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "answer_three");
         return answer_three;
+    }
+
+    // Processes correct answer from tags in the feed.
+    private String readCorrectAnswer(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "answer");
+        String correct_answ = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "answer");
+        return correct_answ;
     }
 
     // For the tags question and answer_two, extracts their text values.

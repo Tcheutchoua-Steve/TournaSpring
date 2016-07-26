@@ -1,11 +1,10 @@
 package com.steeboon.dev.tournaspring.ui;
 
-import android.content.Intent;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,7 +15,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.steeboon.dev.tournaspring.R;
+import com.steeboon.dev.tournaspring.util.AnswerCompare;
 import com.steeboon.dev.tournaspring.util.QuestionList;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class QuestionDisplay extends AppCompatActivity implements View.OnClickListener {
@@ -45,6 +48,12 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
 
     // Create Object to be able to handle timer efficienctly
     private CountDownTimer timer ;
+
+    private AnswerCompare answer_compare ;
+
+    private int selected_answer ;
+
+    private Map <Integer, AnswerCompare> corrections = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +88,10 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         button_prev.setOnClickListener(this);
 
 
+        // display the first question
         displayQuestions(0);
+
+
 
 
       /*  Floatin (FloatingActionButton) findViewById(R.id.fab);
@@ -93,14 +105,25 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     }
 
 
+
     @Override
     public void onClick(View v) {
         if (v.equals(button_next)){
             timer.cancel();
+            corrections.put(allquestions.get(current_question_number).getCorrectAnswer(),
+                    new AnswerCompare(allquestions.get(current_question_number).getCorrectAnswer(),selected_answer));
+
+            // make Radio buttons unchecked by default
+            radio_group_question.clearCheck();
             displayQuestions(current_question_number + 1);
         }
         else if (v.equals(button_prev)){
             timer.cancel();
+            corrections.put(current_question_number,
+                    new AnswerCompare(allquestions.get(current_question_number).getCorrectAnswer(),selected_answer));
+
+            // make Radio buttons unchecked by default
+            radio_group_question.clearCheck();
             displayQuestions(current_question_number - 1);
         }
 
@@ -108,7 +131,12 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
 
     public void displayQuestions(int n){
 
+        // renitializing selected answer
+        selected_answer = 0;
+
         setTimer(40000,1000);
+        // make Radio buttons unchecked by default
+        radio_group_question.check(0);
 
         this.current_question_number = n;
 
@@ -122,6 +150,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
 
         // Disable next button if we are on the last question
         if (current_question_number >= allquestions.size() - 1){
+
             button_next.setEnabled(false);
         }
         else {button_next.setEnabled(true);}
@@ -130,7 +159,36 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         radio_answer1.setText(allquestions.get(current_question_number).getAnswer1());
         radio_answer2.setText(allquestions.get(current_question_number).getAnswer2());
         radio_answer3.setText(allquestions.get(current_question_number).getAnswer3());
+
+
+        radio_group_question.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                switch (checkedId){
+                    case R.id.radioAnswer1 :
+                        selected_answer = 1;
+                      //  Log.i("corrections","A has been selected");
+                        break;
+                    case R.id.radioAnswer2 :
+                        selected_answer = 2;
+                      //  Log.i("corrections","B has been selected");
+                        break;
+                    case R.id.radioAnswer3 :
+                        selected_answer = 2;
+                       // Log.i("corrections","C has been selected");
+                        break;
+                    default: selected_answer = 0 ;
+                }
+                //answer_compare = new AnswerCompare(current_question_number,selected_answer);
+                //corrections.put(current_question_number,new AnswerCompare(current_question_number,selected_answer));
+            }
+        });
+        Log.i("corrections", corrections.toString());
     }
+
+
 
     public void setTimer(final long millisInFuture, long CountDownInterval){
         timer =  new  CountDownTimer(millisInFuture, CountDownInterval) {
@@ -160,5 +218,6 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
             }
 
         }.start();
+
     }
 }

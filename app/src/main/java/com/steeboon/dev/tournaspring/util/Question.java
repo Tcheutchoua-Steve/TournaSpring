@@ -10,7 +10,7 @@ public class Question  {
     private String answer1 ;
     private String answer2;
     private String answer3;
-    private String answer4;
+    private int correct_answer;
 
     public Question() {
     }
@@ -24,12 +24,12 @@ public class Question  {
     }
 
     // For questions with four answers
-    public Question(String question_asked, String answer1, String answer2, String answer3, String answer4) {
+    public Question(String question_asked, String answer1, String answer2, String answer3, int answer4) {
         this.question_asked = question_asked;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
-        this.answer4 = answer4;
+        this.correct_answer = answer4;
     }
 
     public String getQuestion_asked() {
@@ -64,12 +64,12 @@ public class Question  {
         this.answer3 = answer3;
     }
 
-    public String getAnswer4() {
-        return answer4;
+    public int getCorrectAnswer() {
+        return correct_answer;
     }
 
-    public void setAnswer4(String answer4) {
-        this.answer4 = answer4;
+    public void setCorrectAnswer(int answer4) {
+        this.correct_answer = answer4;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Question  {
                 ", answer1='" + answer1 + '\'' +
                 ", answer2='" + answer2 + '\'' +
                 ", answer3='" + answer3 + '\'' +
-                ", answer4='" + answer4 + '\'' +
+                ", answer4='" + correct_answer + '\'' +
                 '}';
     }
 }

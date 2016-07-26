@@ -356,7 +356,7 @@ public class NetworkActivity extends AppCompatActivity {
         for (Entry entry : entries) {
 
             // Add all questions to the list of questions
-            Question question = new Question(entry.question, entry.answer_one, entry.answer_two, entry.answer_three);
+            Question question = new Question(entry.question, entry.answer_one, entry.answer_two, entry.answer_three, entry.correct_answer);
 
             /*if (pref) {
                 htmlString.append(entry.summary);
