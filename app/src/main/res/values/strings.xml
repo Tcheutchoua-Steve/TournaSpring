@@ -12,7 +12,7 @@
     <string name="competition_admin_field">Competition Administrator: </string>
     <string name="competition_admin">Tcheutchoua Steve</string>
     <string name="number_of_questions">Number of available Question: </string>
-    <string name="number_of_competitors_field">Number of Competitors: </string>
+    <string name="number_of_competitors_field">Max Number of Competitors: </string>
     <string name="updated">Last updated:</string>
     <string name="lost_connection">Lost connection.</string>
     <string name="wifi_connected">Wi-Fi reconnected.</string>

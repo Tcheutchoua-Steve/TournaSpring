@@ -1,6 +1,7 @@
 package com.steeboon.dev.tournaspring.ui;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -14,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.steeboon.dev.tournaspring.NetworkActivity;
 import com.steeboon.dev.tournaspring.R;
 import com.steeboon.dev.tournaspring.util.AnswerCompare;
 import com.steeboon.dev.tournaspring.util.QuestionList;
@@ -34,6 +36,8 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
     //The Previous and Next Questin buttons
     private Button button_next ;
     private Button button_prev ;
+
+    private Button button_results ;
 
     private TextView time_left ;
 
@@ -62,6 +66,8 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // bind all views when activity is created
+
         radio_group_question = (RadioGroup)findViewById(R.id.radioGroupQuestion);
         radio_question = (TextView)findViewById(R.id.radioQuestion);
         radio_answer1 = (RadioButton)findViewById(R.id.radioAnswer1);
@@ -74,7 +80,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
 
         button_prev = (Button)findViewById(R.id.prevQuestion);
         button_next = (Button)findViewById(R.id.nextQuestion);
-
+        button_results = (Button)findViewById(R.id.view_results);
 
 
         question_bundle = getIntent().getExtras(); // Get the intent's extras
@@ -86,6 +92,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         // onClick method thanks to the onClickinterface we are implementing
         button_next.setOnClickListener(this);
         button_prev.setOnClickListener(this);
+        button_results.setOnClickListener(this);
 
 
         // display the first question
@@ -126,9 +133,18 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
             radio_group_question.clearCheck();
             displayQuestions(current_question_number - 1);
         }
+        else if( v.equals(button_results)){
+            Intent intent = new Intent(this, Result.class);
+            intent.putExtra("numberOfQuestions",allquestions.size());
+            intent.putExtra("answeredQuestions",allquestions.size()-1);
+            timer.cancel();
+            timer = null ;
+            startActivity(intent);
+        }
 
     }
 
+    // display individual questions to the user
     public void displayQuestions(int n){
 
         // renitializing selected answer
@@ -152,6 +168,9 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         if (current_question_number >= allquestions.size() - 1){
 
             button_next.setEnabled(false);
+            button_results.setVisibility(View.VISIBLE);
+
+
         }
         else {button_next.setEnabled(true);}
 
@@ -161,6 +180,7 @@ public class QuestionDisplay extends AppCompatActivity implements View.OnClickLi
         radio_answer3.setText(allquestions.get(current_question_number).getAnswer3());
 
 
+        // Identify the answer that was clicked
         radio_group_question.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
 
             @Override

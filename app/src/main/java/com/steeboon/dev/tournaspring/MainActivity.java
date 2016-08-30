@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.steeboon.dev.tournaspring.ui.SelectTournament;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView adminName ;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, NetworkActivity.class);
+        Intent intent = new Intent(this, SelectTournament.class);
         startActivity(intent);
 /*        adminName = (TextView) findViewById(R.id.adminName);
         competitionName = (TextView)findViewById(R.id.competionName);

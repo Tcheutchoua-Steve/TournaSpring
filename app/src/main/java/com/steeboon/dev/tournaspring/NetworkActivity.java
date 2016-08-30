@@ -287,9 +287,9 @@ public class NetworkActivity extends AppCompatActivity {
             total_question_number = (TextView)findViewById(R.id.totoalQuestionNumber);
             start_competition = (Button)findViewById(R.id.startCompetition);
 
-            competition_name.setText("Java Keep Alive");
+            competition_name.setText("General Knowledge");
             competition_admin.setText("Tcheutchoua Steve");
-            number_of_competitors.setText("16");
+            number_of_competitors.setText("2");
             // set the total number of questions after the xml file has been parsed
             total_question_number.setText(String.valueOf(allQuestions.size()));
             Log.i("gotAdata", "this is the data I got");

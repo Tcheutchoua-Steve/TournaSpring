@@ -68,6 +68,9 @@
 
     </RadioGroup>
 
+    <Space
+    android:layout_width="1dp"
+    android:layout_height="30dp"/>
 
     <RelativeLayout
         android:id="@+id/linearLayout1"
@@ -76,6 +79,8 @@
         android:orientation="horizontal"
         android:checked="false"
         android:layout_alignParentBottom="true"
+
+
         android:background="?attr/colorControlActivated" >
 
         <Button
@@ -94,5 +99,17 @@
             android:text="@string/buttonNext"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
+
+    <Space
+    android:layout_width="1dp"
+    android:layout_height="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Results"
+        android:id="@+id/view_results"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
